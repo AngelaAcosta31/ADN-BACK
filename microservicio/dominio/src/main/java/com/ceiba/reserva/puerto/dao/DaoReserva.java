@@ -33,11 +33,11 @@ public interface DaoReserva {
     List<DtoReserva> buscarPorIdHabitacion(Long id_habitacion);
 
     /**
-     * permite buscar por id cliente
+     * permite listar por id cliente
      * @param id_cliente
      * @return reserva
      */
-    DtoReserva buscarPorIdCliente(Long id_cliente);
+    List<DtoReserva> buscarPorIdCliente(Long id_cliente);
 
 
 }

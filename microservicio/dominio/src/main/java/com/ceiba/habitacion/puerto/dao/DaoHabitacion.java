@@ -31,7 +31,7 @@ public interface DaoHabitacion {
      * Permite listar habitaciones por piso
      * @return lista de habitaciones
      */
-    List<DtoHabitacion> buscarPorPiso(int piso);
+    List<DtoHabitacion> buscarPorPiso(String piso);
 
     /**
      * permite listar por estado
