@@ -1,6 +1,5 @@
 package com.ceiba.habitacion.puerto.dao;
 
-import com.ceiba.cliente.modelo.dto.DtoCliente;
 import com.ceiba.habitacion.modelo.dto.DtoHabitacion;
 
 import java.util.List;
@@ -43,6 +42,6 @@ public interface DaoHabitacion {
      * permite listar por numero de habitacion
      * @return una habitacion
      */
-    DtoCliente buscarPorNumeroHabitacion(String numero_habitacion);
+    DtoHabitacion buscarPorNumeroHabitacion(String numero_habitacion);
 
 }

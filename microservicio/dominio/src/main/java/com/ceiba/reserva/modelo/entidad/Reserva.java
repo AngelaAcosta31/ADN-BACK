@@ -34,7 +34,7 @@ public class Reserva {
 
 
         this.id_reserva = id_reserva;
-        this.valor = valor;
+        this.valor = calcularTotal(valor, fecha_entrada, fecha_salida);
         this.fecha_entrada = fecha_entrada;
         this.fecha_salida = fecha_salida;
         this.id_habitacion = id_habitacion;

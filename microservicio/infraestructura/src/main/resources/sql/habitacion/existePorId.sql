@@ -1,0 +1,1 @@
+select count(1) from habitacion where id_habitacion = :id_habitacion

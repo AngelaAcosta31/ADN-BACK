@@ -4,7 +4,7 @@ jasypt:
       algorithm: PBEWithMD5AndDES
 
 server:
-   port: 
+   port: 9090
    servlet:
       context-path: /reservacionHotel
       session:
@@ -15,7 +15,7 @@ spring:
       driver-class-name: org.postgresql.Driver
       type: com.zaxxer.hikari.HikariDataSource
       jdbcUrl: jdbc:postgresql://localhost:5432/ReservasHotel
-      username: angela.acosta
-      password: 
+      username: postgres
+      password: angela
       hikari:
          poolName: pool

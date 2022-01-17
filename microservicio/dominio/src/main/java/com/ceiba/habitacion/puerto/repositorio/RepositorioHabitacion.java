@@ -18,6 +18,12 @@ public interface RepositorioHabitacion {
     void actualizar(Habitacion habitacion);
 
     /**
+     * permite actualizar el estado de una habitacion
+     * @param habitacion
+     */
+    void actualizarEstado(Long idHabitacion, String estado);
+
+    /**
      * permite eliminar habitacion
      * @param id
      */
@@ -29,4 +35,11 @@ public interface RepositorioHabitacion {
      * @return existe o no
      */
     boolean existePorNumeroHabitacion(String numero_habitacion);
+
+    /**
+     * permite validar si existe una habitacion con ese id
+     * @param idHabitacion
+     * @retun existe o no
+     */
+    boolean existePorId(Long idHabitacion);
 }
