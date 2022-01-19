@@ -7,4 +7,4 @@ set nombre = :nombre,
     sexo = :sexo,
     fecha_nacimiento = :fecha_nacimiento,
     direccion = :direccion
-where id_cliente = :id_cliente
+where id = :id

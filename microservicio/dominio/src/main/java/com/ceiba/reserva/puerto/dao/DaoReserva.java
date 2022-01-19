@@ -2,6 +2,7 @@ package com.ceiba.reserva.puerto.dao;
 
 import com.ceiba.reserva.modelo.dto.DtoReserva;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,13 +18,13 @@ public interface DaoReserva {
      * Permite listar reservas por fecha de entrada
      * @return lsita de reservas
      */
-    List<DtoReserva> buscarPorFechaEntrada(LocalDateTime fecha_entrada);
+    List<DtoReserva> buscarPorFechaEntrada(LocalDate fecha_entrada);
 
     /**
      * Permite listar reservas por fecha de salida
      * @return lista de reservas
      */
-    List<DtoReserva> buscarPorFechaSalida(LocalDateTime fecha_salida);
+    List<DtoReserva> buscarPorFechaSalida(LocalDate fecha_salida);
 
     /**
      * permite listar por id habitacion
@@ -39,5 +40,10 @@ public interface DaoReserva {
      */
     List<DtoReserva> buscarPorIdCliente(Long id_cliente);
 
-
+    /**
+     * permite obtener el precio de la habitacion
+     * @param id_habitacion
+     * @return precio habitacion
+     */
+    DtoReserva obtenerPrecioHabitacion(Long id_habitacion);
 }

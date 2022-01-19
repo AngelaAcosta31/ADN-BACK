@@ -1,13 +1,14 @@
 package com.ceiba.dominio;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
@@ -21,12 +22,18 @@ public class ValidadorArgumento {
             throw new ExcepcionValorObligatorio(mensaje);
         }
     }
-    
+
     public static void validarLongitud(String valor,int longitud,String mensaje){
         if(valor.length() < longitud){
             throw new ExcepcionLongitudValor(mensaje);
         }
     }
+
+    /*public static void validarSexo(String valor,String esperado,String mensaje){
+        if(valor.equalsIgnoreCase(esperado)){
+            throw new ExcepcionDuplicidad(mensaje);
+        }
+    }*/
     
     public static <T> void validarNoVacio(List<T> lista, String mensaje) {
         if (lista.isEmpty()) {
@@ -35,6 +42,13 @@ public class ValidadorArgumento {
     }
 
     public static void validarPositivo(Double valor, String mensaje) {
+        if (valor <= 0) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
+
+    public static void validarMayor(Double valor, String mensaje) {
         if (valor <= 0) {
             throw new ExcepcionValorInvalido(mensaje);
         }
@@ -52,13 +66,18 @@ public class ValidadorArgumento {
         }
     }
 
-    public static void validarMenor(LocalDateTime fechaInicial, LocalDateTime fechaFinal, String mensaje) {
-        if (fechaInicial.toLocalDate().isAfter(fechaFinal.toLocalDate())) {
+    public static void validarMenor(LocalDate fechaInicial, LocalDate fechaFinal, String mensaje) {
+        if (fechaInicial.getYear()<(fechaFinal.getYear())) {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }
 
     public static void validarMenor(Long numeroInicial, Long numeroFinal, String mensaje) {
+        if (numeroInicial > numeroFinal) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+    public static void validarMenor(Integer numeroInicial, Integer numeroFinal, String mensaje) {
         if (numeroInicial > numeroFinal) {
             throw new ExcepcionValorInvalido(mensaje);
         }
@@ -95,6 +114,27 @@ public class ValidadorArgumento {
             throw new ExcepcionValorInvalido(mensaje);
         }
     }
+
+    public static boolean validarSexo(String palabra, String seDebeIngresarFOM){
+
+        if(palabra.equalsIgnoreCase("f")|| palabra.equalsIgnoreCase("m")|| palabra.equalsIgnoreCase("o")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+    public static void validarSexo1(String palabra, String mensaje){
+
+
+        if(!palabra.equalsIgnoreCase("f")|| !palabra.equalsIgnoreCase("m")||!palabra.equalsIgnoreCase("o")){
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
+
+
 
 
 }

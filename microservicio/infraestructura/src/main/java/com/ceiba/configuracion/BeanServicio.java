@@ -57,8 +57,8 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioCrearReserva servicioCrearReserva(RepositorioReserva repositorioReserva){
-        return new ServicioCrearReserva(repositorioReserva);
+    public ServicioCrearReserva servicioCrearReserva(RepositorioReserva repositorioReserva, RepositorioHabitacion repositorioHabitacion){
+        return new ServicioCrearReserva(repositorioReserva, repositorioHabitacion);
     }
 
     @Bean
@@ -67,8 +67,8 @@ public class BeanServicio {
     }
 
     @Bean
-    public ServicioActualizarReserva servicioActualizarReserva (RepositorioReserva repositorioReserva, RepositorioHabitacion repositorioHabitacion){
-        return new ServicioActualizarReserva(repositorioReserva,repositorioHabitacion);
+    public ServicioActualizarReserva servicioActualizarReserva (RepositorioReserva repositorioReserva){
+        return new ServicioActualizarReserva(repositorioReserva);
     }
 
 	

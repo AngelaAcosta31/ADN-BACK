@@ -45,7 +45,7 @@ public class ComandoControladorHabitacion {
     @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar habitacion")
     public void actualizar(@RequestBody ComandoHabitacion comandoHabitacion, @PathVariable Long id){
-        comandoHabitacion.setId_habitacion(id);
+        comandoHabitacion.setId(id);
         manejadorActualizarHabitacion.ejecutar(comandoHabitacion);
     }
 }

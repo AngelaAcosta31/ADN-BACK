@@ -4,7 +4,7 @@ import com.ceiba.habitacion.modelo.entidad.Habitacion;
 
 public class HabitacionTestDataBuilder {
 
-    private Long id_habitacion;
+    private Long id;
     private String numero_habitacion;
     private String tipo;
     private Integer no_camas;
@@ -16,18 +16,18 @@ public class HabitacionTestDataBuilder {
 
     public HabitacionTestDataBuilder(){
 
-        this.numero_habitacion = "110";
+        this.numero_habitacion = "120";
         this.tipo = "SENCILLA";
         this.no_camas = 1;
         this.no_bannos = 1;
         this.descripcion = "HABITACION CON CAMA SENCILLA, TV, NEVERA Y BAÑO";
-        this.precio = 80000.00;
+        this.precio = 20000.00;
         this.piso = "1";
         this.estado= "D";
     }
 
-    public HabitacionTestDataBuilder conIdHabitacion(Long id_habitacion){
-        this.id_habitacion = id_habitacion;
+    public HabitacionTestDataBuilder conIdHabitacion(Long id){
+        this.id = id;
         return this;
     }
 
@@ -71,6 +71,6 @@ public class HabitacionTestDataBuilder {
     }
 
     public Habitacion build(){
-        return new Habitacion(id_habitacion,numero_habitacion,tipo,no_camas,no_bannos,descripcion,precio,piso,estado);
+        return new Habitacion(id,numero_habitacion,tipo,no_camas,no_bannos,descripcion,precio,piso,estado);
     }
 }

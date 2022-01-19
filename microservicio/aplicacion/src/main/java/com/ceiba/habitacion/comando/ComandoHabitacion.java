@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ComandoHabitacion {
 
-    private Long id_habitacion;
+    private Long id;
     private String numero_habitacion;
     private String tipo;
     private Integer no_camas;

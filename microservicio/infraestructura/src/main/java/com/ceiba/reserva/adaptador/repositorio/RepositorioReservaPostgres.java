@@ -24,6 +24,12 @@ public class RepositorioReservaPostgres implements RepositorioReserva {
     @SqlStatement(namespace = "reserva", value = "existePorId")
     private static String sqlExistePorId;
 
+    @SqlStatement(namespace = "reserva", value = "existePorIdHabitacion")
+    private static String sqlExistePorIdHabitacion;
+
+    @SqlStatement(namespace = "reserva", value = "existePorIdCliente")
+    private static String sqlExistePorIdCliente;
+
     @SqlStatement(namespace = "reserva", value = "existe")
     private static String sqlExiste;
 
@@ -45,18 +51,36 @@ public class RepositorioReservaPostgres implements RepositorioReserva {
     }
 
     @Override
-    public void eliminar(Long id_reserva) {
+    public void eliminar(Long id) {
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-        mapSqlParameterSource.addValue("id_reserva",id_reserva);
+        mapSqlParameterSource.addValue("id",id);
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar,mapSqlParameterSource);
     }
 
     @Override
-    public boolean existePorId(Long id_reserva) {
+    public boolean existePorId(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_reserva", id_reserva);
+        paramSource.addValue("id", id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId,paramSource, Boolean.class);
+
+    }
+
+    @Override
+    public boolean existePorIdHabitacion(Long idHabitacion) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id_habitacion", idHabitacion);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorIdHabitacion,paramSource, Boolean.class);
+
+    }
+
+    @Override
+    public boolean existePorIdCliente(Long idCliente) {
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("id_cliente", idCliente);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorIdCliente,paramSource, Boolean.class);
 
     }
 }

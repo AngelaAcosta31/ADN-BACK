@@ -1,20 +1,21 @@
 package com.ceiba.habitacion.comando.manejador;
 
-import com.ceiba.cliente.servicio.ServicioEliminarCliente;
+
+import com.ceiba.habitacion.servicio.ServicioEliminarHabitacion;
 import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ManejadorEliminarHabitacion implements ManejadorComando<Long> {
 
-    private final ServicioEliminarCliente servicioEliminarCliente;
+    private final ServicioEliminarHabitacion servicioEliminarHabitacion;
 
 
-    public ManejadorEliminarHabitacion(ServicioEliminarCliente servicioEliminarCliente) {
-        this.servicioEliminarCliente = servicioEliminarCliente;
+    public ManejadorEliminarHabitacion( ServicioEliminarHabitacion servicioEliminarHabitacion) {
+        this.servicioEliminarHabitacion = servicioEliminarHabitacion;
     }
 
     public void ejecutar(Long idHabitacion){
-        this.servicioEliminarCliente.ejecutar(idHabitacion);
+        this.servicioEliminarHabitacion.ejecutar(idHabitacion);
     }
 }

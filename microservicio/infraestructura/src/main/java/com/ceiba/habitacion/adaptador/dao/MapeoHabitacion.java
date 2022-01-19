@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class MapeoHabitacion implements RowMapper<DtoHabitacion>, MapperResult {
     @Override
     public DtoHabitacion mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-        Long id_habitacion = resultSet.getLong("id_habitacion");
+        Long id = resultSet.getLong("id");
         String numero_habitacion = resultSet.getString("numero_habitacion");
         String tipo = resultSet.getString("tipo");
         Integer no_camas = resultSet.getInt("no_camas");
@@ -20,6 +20,6 @@ public class MapeoHabitacion implements RowMapper<DtoHabitacion>, MapperResult {
         String piso = resultSet.getString("piso");
         String estado = resultSet.getString("estado");
 
-        return new DtoHabitacion(id_habitacion,numero_habitacion,tipo,no_camas,no_bannos,descripcion,precio,piso,estado);
+        return new DtoHabitacion(id,numero_habitacion,tipo,no_camas,no_bannos,descripcion,precio,piso,estado);
     }
 }

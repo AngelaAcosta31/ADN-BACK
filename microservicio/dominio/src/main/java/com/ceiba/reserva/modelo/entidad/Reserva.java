@@ -1,8 +1,10 @@
 package com.ceiba.reserva.modelo.entidad;
 
+import javafx.util.converter.LocalDateTimeStringConverter;
 import lombok.Getter;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
@@ -18,14 +20,18 @@ public class Reserva {
     private static final String SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION = "Se debe ingresar el id de la habitación";
     private static final String SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE = "Se debe ingresar el id del cliente";
 
-    private Long id_reserva;
+
+
+    private Long id;
     private Double valor;
-    private LocalDateTime fecha_entrada;
-    private LocalDateTime fecha_salida;
+    private LocalDate fecha_entrada;
+    private LocalDate fecha_salida;
     private Long id_habitacion;
     private Long id_cliente;
 
-    public Reserva(Long id_reserva, Double valor, LocalDateTime fecha_entrada, LocalDateTime fecha_salida, Long id_habitacion, Long id_cliente) {
+    private Double precioHabitacion;
+
+    public Reserva(Long id, Double valor, LocalDate fecha_entrada, LocalDate fecha_salida, Long id_habitacion, Long id_cliente) {
 
         validarObligatorio(fecha_entrada, SE_DEBE_INGRESAR_FECHA_ENTRADA);
         validarObligatorio(valor, SE_DEBE_INGRESAR_UN_VALOR);
@@ -33,16 +39,20 @@ public class Reserva {
         validarObligatorio(id_cliente, SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE);
 
 
-        this.id_reserva = id_reserva;
+        this.id = id;
         this.valor = calcularTotal(valor, fecha_entrada, fecha_salida);
         this.fecha_entrada = fecha_entrada;
         this.fecha_salida = fecha_salida;
         this.id_habitacion = id_habitacion;
         this.id_cliente = id_cliente;
     }
+   // metodo para consulta del precio
 
-    public Double calcularTotal(Double valorHabitacion, LocalDateTime fecha_entrada, LocalDateTime fecha_salida){
-        Double total=0.0;
+
+
+
+    public Double calcularTotal(Double precioHabitacion, LocalDate fecha_entrada, LocalDate fecha_salida){
+       // Double total=0.0;
         Integer totalDias =0;
         DayOfWeek diasDeLaSemana = fecha_entrada.getDayOfWeek();
         //los fines de semana el valor aumenta un 20% para temporada alta
@@ -52,10 +62,10 @@ public class Reserva {
             // se revisa la fecha de entrada para saber en que temporada esta
             if(temporadaBajaoAlta(fecha_entrada,fecha_salida).equals("TEMPORADA ALTA")){
                 // la temporada alta aumenta un 40% + 20% de los fines de semana
-                return (totalDias * valorHabitacion) + (totalDias * valorHabitacion * 0.2) + (totalDias * valorHabitacion * 0.4);
+                return (totalDias * precioHabitacion) + (totalDias * precioHabitacion * 0.2) + (totalDias * precioHabitacion * 0.4);
             }else{
                 // si es temporada baja aumenta un 10% del valor total para los fines de semana
-               return  (totalDias * valorHabitacion) + (totalDias * valorHabitacion * 0.1);
+               return  (totalDias * precioHabitacion) + (totalDias * precioHabitacion * 0.1);
             }
 
         }else{
@@ -64,16 +74,16 @@ public class Reserva {
             // se revisa la fecha de entrada del cliente para determinar en que temporada esta
             if(temporadaBajaoAlta(fecha_entrada,fecha_salida).equals("TEMPORADA ALTA")){
                 // la temporada alta aumenta un 40%
-                return (totalDias * valorHabitacion) + (totalDias * valorHabitacion * 0.4);
+                return (totalDias * precioHabitacion) + (totalDias * precioHabitacion * 0.4);
             }else{
                 // si es temporada baja disminuye un 10% del valor total
-                return  (totalDias * valorHabitacion) - (totalDias * valorHabitacion * 0.1);
+                return  (totalDias * precioHabitacion) - (totalDias * precioHabitacion * 0.1);
             }
 
         }
     }
 
-    public Integer totalDias(LocalDateTime fecha_entrada, LocalDateTime fecha_salida){
+    public Integer totalDias(LocalDate fecha_entrada, LocalDate fecha_salida){
         Integer dias = 0;
         //revisar este metodo
         //TemporalUnit unidadTemporalEnDias = ChronoUnit.DAYS;
@@ -81,7 +91,7 @@ public class Reserva {
         return dias;
     }
 
-    public String temporadaBajaoAlta(LocalDateTime fecha_entrada, LocalDateTime fecha_salida){
+    public String temporadaBajaoAlta(LocalDate fecha_entrada, LocalDate fecha_salida){
         String TEMPORADA_ALTA = "TEMPORADA ALTA";
         String TEMPORADA_BAJA = "TEMPORADA BAJA";
 

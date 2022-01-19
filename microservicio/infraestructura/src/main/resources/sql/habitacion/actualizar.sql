@@ -7,4 +7,4 @@ set numero_habitacion = :numero_habitacion,
     precio = :precio,
     piso = :piso,
     estado = :estado
-where id_habitacion = :id_habitacion
+where id = :id

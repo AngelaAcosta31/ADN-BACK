@@ -50,13 +50,13 @@ public class RepositorioHabitacionPostgres implements RepositorioHabitacion {
     @Override
     public void actualizarEstado(Long idHabitacion, String estado) {
         Habitacion habitacion = new Habitacion(idHabitacion, "","",0,0 ,"",0.0, "",estado);
-        this.customNamedParameterJdbcTemplate.actualizar(habitacion, sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(habitacion, sqlActualizarEstado);
     }
 
     @Override
-    public void eliminar(Long id_habitacion) {
+    public void eliminar(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_habitacion", id_habitacion);
+        paramSource.addValue("id", id);
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }
 
@@ -69,9 +69,9 @@ public class RepositorioHabitacionPostgres implements RepositorioHabitacion {
     }
 
     @Override
-    public boolean existePorId(Long id_Habitacion) {
+    public boolean existePorId(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_Habitacion", id_Habitacion);
+        paramSource.addValue("id", id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId,paramSource, Boolean.class);
     }

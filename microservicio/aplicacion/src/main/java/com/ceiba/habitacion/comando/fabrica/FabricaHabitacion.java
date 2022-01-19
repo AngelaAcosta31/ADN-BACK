@@ -9,7 +9,7 @@ public class FabricaHabitacion {
 
     public Habitacion crear(ComandoHabitacion comandoHabitacion){
         return new Habitacion(
-                comandoHabitacion.getId_habitacion(),
+                comandoHabitacion.getId(),
                 comandoHabitacion.getNumero_habitacion(),
                 comandoHabitacion.getTipo(),
                 comandoHabitacion.getNo_camas(),

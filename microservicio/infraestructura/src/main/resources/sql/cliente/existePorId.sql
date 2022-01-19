@@ -1,1 +1,1 @@
-select count(1) from cliente where id_cliente = :id_cliente
+select count(1) from cliente where id = :id

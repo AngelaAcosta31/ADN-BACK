@@ -8,32 +8,33 @@ import java.time.LocalTime;
 
 public class ClienteTestDataBuilder {
 
-    private Long   id_cliente;
+    private Long   id;
     private String nombre;
     private String apellido;
     private String numero_identificacion;
     private String telefono;
     private String correo;
     private String sexo;
-    private LocalDateTime fecha_nacimiento;
+    private LocalDate fecha_nacimiento;
     private String direccion;
 
     //CREO EL OBJETO
 
     public ClienteTestDataBuilder(){
 
-        this.nombre = "ANGELA";
+        this.nombre = "PAULA";
         this.apellido = "ACOSTA";
-        this.numero_identificacion ="1005874280";
-        this.telefono = "3104542773";
-        this.correo = "angela@hotmail.com";
+        this.numero_identificacion ="1005874281";
+        this.telefono = "3104542756";
+        this.correo = "PAULITA@HOTMAIL.COM";
         this.sexo ="F";
-        this.fecha_nacimiento = LocalDateTime.of(LocalDate.of(2000,07,31), LocalTime.of(11,00));
+        this.fecha_nacimiento = LocalDate.of(2000,07,31);
         this.direccion = "CALLE 30 # 1-160";
     }
 
-    public ClienteTestDataBuilder conIdCliente(Long id_cliente){
-        this.id_cliente = id_cliente;
+    // metodos que nos permitiran cambiar los valores por defecto
+    public ClienteTestDataBuilder conIdCliente(Long id){
+        this.id = id;
         return this;
     }
 
@@ -67,7 +68,7 @@ public class ClienteTestDataBuilder {
         return this;
     }
 
-    public ClienteTestDataBuilder conFechaNacimiento(LocalDateTime fecha_nacimiento){
+    public ClienteTestDataBuilder conFechaNacimiento(LocalDate fecha_nacimiento){
         this.fecha_nacimiento = fecha_nacimiento;
         return this;
     }
@@ -77,7 +78,8 @@ public class ClienteTestDataBuilder {
         return this;
     }
 
+    //construye el objeto final y nos devuelve una instancia del mismo
     public Cliente build(){
-        return new Cliente(id_cliente,nombre,apellido,numero_identificacion,telefono,correo,sexo,fecha_nacimiento,direccion);
+        return new Cliente(id,nombre,apellido,numero_identificacion,telefono,correo,sexo,fecha_nacimiento,direccion);
     }
 }

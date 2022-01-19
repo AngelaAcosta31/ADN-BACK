@@ -2,6 +2,7 @@ package com.ceiba.habitacion.modelo.entidad;
 
 import lombok.Getter;
 
+import static com.ceiba.dominio.ValidadorArgumento.validarMenor;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
@@ -15,8 +16,11 @@ public class Habitacion {
     private static final String SE_DEBE_INGRESAR_EL_NUMERO_DE_BANIOS = "Se debe ingresar el numero de baños";
     private static final String SE_DEBE_INGRESAR_LA_DESCRIPCION = "Se debe ingresar una descripción de la habitación";
     private static final String SE_DEBE_INGRESAR_UN_ESTADO = "Se debe ingresar un estado";
+    private static final String SE_DEBE_INGRESAR_UN_NUMERO_DE_CAMAS_VALIDO = "Se debe ingresar un numero de camas  valido";
+    private static final String SE_DEBE_INGRESAR_UN_NUMERO_DE_BANNOS_VALIDO = "Se debe ingresar un numero de baños  valido";
 
-    private Long id_habitacion;
+
+    private Long id;
     private String numero_habitacion;
     private String tipo;
     private Integer no_camas;
@@ -26,7 +30,7 @@ public class Habitacion {
     private String piso;
     private String estado;
 
-    public Habitacion(Long id_habitacion, String numero_habitacion, String tipo, Integer no_camas, Integer no_bannos, String descripcion, Double precio, String piso, String estado) {
+    public Habitacion(Long id, String numero_habitacion, String tipo, Integer no_camas, Integer no_bannos, String descripcion, Double precio, String piso, String estado) {
 
         //Nos permite validar que si no se introduce un valor a cada atributo mande el mensaje
         validarObligatorio(numero_habitacion, SE_DEBE_INGRESAR_NUMERO_HABITACION);
@@ -36,7 +40,7 @@ public class Habitacion {
         validarObligatorio(descripcion, SE_DEBE_INGRESAR_LA_DESCRIPCION);
         validarObligatorio(estado, SE_DEBE_INGRESAR_UN_ESTADO);
 
-        this.id_habitacion = id_habitacion;
+        this.id = id;
         this.numero_habitacion = numero_habitacion;
         this.tipo = tipo;
         this.no_camas = no_camas;

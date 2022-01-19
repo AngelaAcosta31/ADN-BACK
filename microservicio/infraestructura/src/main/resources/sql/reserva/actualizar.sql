@@ -4,4 +4,4 @@ set  valor = :valor,
      fecha_salida = :fecha_salida,
      id_habitacion = :id_habitacion,
      id_cliente = :id_cliente
-where  id_reserva = : id_reserva
+where  id = :id

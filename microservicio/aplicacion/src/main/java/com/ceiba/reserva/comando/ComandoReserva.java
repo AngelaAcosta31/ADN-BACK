@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -13,10 +14,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ComandoReserva {
 
-    private Long id_reserva;
+    private Long id;
     private Double valor;
-    private LocalDateTime fecha_entrada;
-    private LocalDateTime fecha_salida;
+    private LocalDate fecha_entrada;
+    private LocalDate fecha_salida;
     private Long id_habitacion;
     private Long id_cliente;
 }

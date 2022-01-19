@@ -1,3 +1,3 @@
 select *
 from habitacion
-where numero_habitacion = :numero_habitacion
+where no_camas = :no_camas

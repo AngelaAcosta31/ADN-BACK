@@ -46,9 +46,9 @@ public class RepositorioClientePostgres implements RepositorioCliente {
     }
 
     @Override
-    public void eliminar(Long id_cliente) {
+    public void eliminar(Long id) {
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-        mapSqlParameterSource.addValue("id_cliente", id_cliente);
+        mapSqlParameterSource.addValue("id", id);
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, mapSqlParameterSource);
     }
 

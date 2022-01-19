@@ -43,7 +43,7 @@ public class ComandoControladorCliente {
     @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar cliente")
     public void actualizar(@RequestBody ComandoCliente comandoCliente, @PathVariable Long id){
-        comandoCliente.setId_cliente(id);
+        comandoCliente.setId(id);
         manejadorActualizarCliente.ejecutar(comandoCliente);
     }
 }

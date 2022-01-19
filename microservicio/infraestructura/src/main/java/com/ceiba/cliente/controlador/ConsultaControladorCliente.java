@@ -33,14 +33,14 @@ public class ConsultaControladorCliente {
 
     @GetMapping("/correo/{correo}")
     @ApiOperation("Buscar por correo cliente")
-    public DtoCliente buscarPorCorreo(@RequestParam String correo){
+    public DtoCliente buscarPorCorreo(@PathVariable String correo){
         return this.manejadorBuscarPorCorreoCliente.ejecutar(correo);
     }
 
-    @GetMapping("/numeroIdentificacion/{numeroIdentificacion}")
+    @GetMapping("/numeroId/{numeroId}")
     @ApiOperation("Buscar por numero de identificacion cliente")
-    public DtoCliente buscarPorNumeroIdentificacion(@RequestParam String numeroIdentificacion){
-        return this.manejadorBuscarPorNumeroIdentificacionCliente.ejecutar(numeroIdentificacion);
+    public DtoCliente buscarPorNumeroIdentificacion(@PathVariable String numeroId){
+        return this.manejadorBuscarPorNumeroIdentificacionCliente.ejecutar(numeroId);
     }
 
 

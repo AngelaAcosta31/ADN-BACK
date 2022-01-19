@@ -13,7 +13,7 @@ public class ServicioActualizarReserva {
 
     private final RepositorioReserva repositorioReserva;
 
-    public ServicioActualizarReserva(RepositorioReserva repositorioReserva, RepositorioHabitacion repositorioHabitacion) {
+    public ServicioActualizarReserva(RepositorioReserva repositorioReserva) {
         this.repositorioReserva = repositorioReserva;
     }
 
@@ -23,7 +23,7 @@ public class ServicioActualizarReserva {
     }
 
     private void validarExistenciaPrevia(Reserva reserva){
-        boolean existe = this.repositorioReserva.existePorId(reserva.getId_reserva());
+        boolean existe = this.repositorioReserva.existePorId(reserva.getId());
         if(!existe){
             throw new ExcepcionDuplicidad(LA_RESERVA_NO_EXISTE_EN_EL_SISTEMA);
         }

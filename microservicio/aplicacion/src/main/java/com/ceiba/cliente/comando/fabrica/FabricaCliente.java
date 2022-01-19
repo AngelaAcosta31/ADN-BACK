@@ -9,7 +9,7 @@ public class FabricaCliente {
     public Cliente crear(ComandoCliente comandoCliente){
         return new Cliente(
 
-                comandoCliente.getId_cliente(),
+                comandoCliente.getId(),
                 comandoCliente.getNombre(),
                 comandoCliente.getApellido(),
                 comandoCliente.getNumero_identificacion(),

@@ -8,6 +8,7 @@ import com.ceiba.reserva.puerto.dao.DaoReserva;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -31,6 +32,9 @@ public class DaoReservaPostgres implements DaoReserva {
     @SqlStatement(namespace = "reserva", value = "listarPorIdHabitacion")
     private static String sqlListarPorIdHabitacion;
 
+    @SqlStatement(namespace = "reserva", value = "obtenerPrecioHabitacion")
+    private static String sqlObtenerPrecioHabitacion;
+
     public DaoReservaPostgres(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -42,14 +46,14 @@ public class DaoReservaPostgres implements DaoReserva {
     }
 
     @Override
-    public List<DtoReserva> buscarPorFechaEntrada(LocalDateTime fecha_entrada) {
+    public List<DtoReserva> buscarPorFechaEntrada(LocalDate fecha_entrada) {
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
         mapSqlParameterSource.addValue("fecha_entrada", fecha_entrada);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorFechaEntrada, mapSqlParameterSource, new MapeoReserva());
     }
 
     @Override
-    public List<DtoReserva> buscarPorFechaSalida(LocalDateTime fecha_salida) {
+    public List<DtoReserva> buscarPorFechaSalida(LocalDate fecha_salida) {
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
         mapSqlParameterSource.addValue("fecha_salida", fecha_salida);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorFechaSalida, mapSqlParameterSource, new MapeoReserva());
@@ -67,5 +71,12 @@ public class DaoReservaPostgres implements DaoReserva {
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
         mapSqlParameterSource.addValue("id_cliente", id_cliente);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorIdCliente, mapSqlParameterSource, new MapeoReserva());
+    }
+
+    @Override
+    public DtoReserva obtenerPrecioHabitacion(Long id_habitacion) {
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("id_habitacion", id_habitacion);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlObtenerPrecioHabitacion, mapSqlParameterSource, new MapeoReserva()).stream().findFirst().get();
     }
 }

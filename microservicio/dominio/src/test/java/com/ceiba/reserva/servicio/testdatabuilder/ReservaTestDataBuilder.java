@@ -8,25 +8,25 @@ import java.time.LocalTime;
 
 public class ReservaTestDataBuilder {
 
-    private Long id_reserva;
+    private Long id;
     private Double valor;
-    private LocalDateTime fecha_entrada;
-    private LocalDateTime fecha_salida;
+    private LocalDate fecha_entrada;
+    private LocalDate fecha_salida;
     private Long id_habitacion;
     private Long id_cliente;
 
     public ReservaTestDataBuilder(){
 
-        this.valor = 40000.00;
-        this.fecha_entrada = LocalDateTime.of(LocalDate.of(2021,06,20), LocalTime.of(11,23));
-        this.fecha_salida = LocalDateTime.of(LocalDate.of(2021,06,30), LocalTime.of(11,23));
+        this.valor = 4000.00;
+        this.fecha_entrada = LocalDate.of(2021,06,20);
+        this.fecha_salida = LocalDate.of(2021,06,30);
         this.id_habitacion = 1L;
         this.id_cliente = 1L;
 
     }
 
     public ReservaTestDataBuilder conIdReserva(Long id_reserva){
-        this.id_reserva = id_reserva;
+        this.id = id_reserva;
         return this;
     }
 
@@ -35,12 +35,12 @@ public class ReservaTestDataBuilder {
         return this;
     }
 
-    public ReservaTestDataBuilder conFechaEntrada(LocalDateTime fecha_entrada){
+    public ReservaTestDataBuilder conFechaEntrada(LocalDate fecha_entrada){
         this.fecha_entrada = fecha_entrada;
         return this;
     }
 
-    public ReservaTestDataBuilder conFechaSalida(LocalDateTime fecha_salida){
+    public ReservaTestDataBuilder conFechaSalida(LocalDate fecha_salida){
         this.fecha_salida = fecha_salida;
         return this;
     }
@@ -55,6 +55,6 @@ public class ReservaTestDataBuilder {
     }
 
     public Reserva build(){
-        return new Reserva(id_reserva,valor,fecha_entrada,fecha_salida,id_habitacion,id_cliente);
+        return new Reserva(id,valor,fecha_entrada,fecha_salida,id_habitacion,id_cliente);
     }
 }

@@ -19,7 +19,7 @@ public interface RepositorioHabitacion {
 
     /**
      * permite actualizar el estado de una habitacion
-     * @param habitacion
+     *
      */
     void actualizarEstado(Long idHabitacion, String estado);
 

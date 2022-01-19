@@ -43,31 +43,31 @@ public class ConsultaControladorHabitacion {
 
     @GetMapping("/numeroHabitacion/{numeroHabitacion}")
     @ApiOperation("Buscar por numero habitacion")
-    public List<DtoHabitacion> buscarPorNumeroHabitacion(@RequestParam String numeroHabitacion){
-        return (List<DtoHabitacion>) this.manejadorBuscarPorNumeroHabitacion.ejecutar(numeroHabitacion);
+    public DtoHabitacion buscarPorNumeroHabitacion(@PathVariable String numeroHabitacion){
+        return  this.manejadorBuscarPorNumeroHabitacion.ejecutar(numeroHabitacion);
     }
 
     @GetMapping("/estado/{estado}")
     @ApiOperation("Buscar por estado")
-    public List<DtoHabitacion> buscarPorEstado(@RequestParam String estado){
+    public List<DtoHabitacion> buscarPorEstado(@PathVariable String estado){
         return this.manejadorListarPorEstadoHabitacion.ejecutar(estado);
     }
 
     @GetMapping("/numero_camas/{no_camas}")
     @ApiOperation("Buscar por numero de camas")
-    public List<DtoHabitacion> buscarPorNumeroCamas(@RequestParam Integer no_camas){
+    public List<DtoHabitacion> buscarPorNumeroCamas(@PathVariable Integer no_camas){
         return this.manejadorListarPorNumeroCamasHabitacion.ejecutar(no_camas);
     }
 
     @GetMapping("/piso/{piso}")
     @ApiOperation("Buscar por piso")
-    public List<DtoHabitacion> buscarPorPiso(@RequestParam String piso){
+    public List<DtoHabitacion> buscarPorPiso(@PathVariable String piso){
         return this.manejadorListarPorPiso.ejecutar(piso);
     }
 
     @GetMapping("/tipo/{tipo}")
     @ApiOperation("Buscar por tipo")
-    public List<DtoHabitacion> buscarPorTipo(@RequestParam String tipo){
+    public List<DtoHabitacion> buscarPorTipo(@PathVariable String tipo){
         return this.manejadorListarPorTipoHabitacion.ejecutar(tipo);
     }
 
