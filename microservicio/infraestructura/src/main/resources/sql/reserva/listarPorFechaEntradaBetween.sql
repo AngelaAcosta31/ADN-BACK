@@ -1,2 +1,2 @@
 select * from reserva
-where fecha_entrada between  :fecha_entrada1 and :fecha_entrada2
+where fechaEntrada between  :fechaEntrada1 and :fechaEntrada2

@@ -69,7 +69,7 @@ public class RepositorioReservaPostgres implements RepositorioReserva {
     @Override
     public boolean existePorIdHabitacion(Long idHabitacion) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_habitacion", idHabitacion);
+        paramSource.addValue("idHabitacion", idHabitacion);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorIdHabitacion,paramSource, Boolean.class);
 
@@ -78,7 +78,7 @@ public class RepositorioReservaPostgres implements RepositorioReserva {
     @Override
     public boolean existePorIdCliente(Long idCliente) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_cliente", idCliente);
+        paramSource.addValue("idCliente", idCliente);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorIdCliente,paramSource, Boolean.class);
 

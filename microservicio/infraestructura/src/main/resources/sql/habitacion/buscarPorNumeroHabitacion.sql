@@ -1,1 +1,1 @@
-select * from habitacion where numero_habitacion like :numero_habitacion
+select * from habitacion where numeroHabitacion like :numeroHabitacion

@@ -25,8 +25,8 @@ public interface RepositorioCliente {
 
     /**
      * para validar si existe un cliente con ese numero de identificacion
-     * @param numero_identificacion
+     * @param numeroIdentificacion
      * @return existe o no existe
      */
-    boolean existePorNumeroIdentificacion(String numero_identificacion);
+    boolean existePorNumeroIdentificacion(String numeroIdentificacion);
 }

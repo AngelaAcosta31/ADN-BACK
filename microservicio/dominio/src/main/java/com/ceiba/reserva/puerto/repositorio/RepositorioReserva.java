@@ -29,6 +29,7 @@ public interface RepositorioReserva {
      */
     boolean existePorId(Long id);
 
+
     /**
      * para validar si existe una reserva con el id de la habitacion
      * @return si existe o no

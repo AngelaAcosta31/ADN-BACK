@@ -53,10 +53,10 @@ public class ConsultaControladorHabitacion {
         return this.manejadorListarPorEstadoHabitacion.ejecutar(estado);
     }
 
-    @GetMapping("/numero_camas/{no_camas}")
+    @GetMapping("/numero_camas/{noCamas}")
     @ApiOperation("Buscar por numero de camas")
-    public List<DtoHabitacion> buscarPorNumeroCamas(@PathVariable Integer no_camas){
-        return this.manejadorListarPorNumeroCamasHabitacion.ejecutar(no_camas);
+    public List<DtoHabitacion> buscarPorNumeroCamas(@PathVariable Integer noCamas){
+        return this.manejadorListarPorNumeroCamasHabitacion.ejecutar(noCamas);
     }
 
     @GetMapping("/piso/{piso}")

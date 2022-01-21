@@ -18,32 +18,27 @@ public interface DaoReserva {
      * Permite listar reservas por fecha de entrada
      * @return lsita de reservas
      */
-    List<DtoReserva> buscarPorFechaEntrada(LocalDate fecha_entrada);
+    List<DtoReserva> buscarPorFechaEntrada(LocalDate fechaEntrada);
 
     /**
      * Permite listar reservas por fecha de salida
      * @return lista de reservas
      */
-    List<DtoReserva> buscarPorFechaSalida(LocalDate fecha_salida);
+    List<DtoReserva> buscarPorFechaSalida(LocalDate fechaSalida);
 
     /**
      * permite listar por id habitacion
-     * @param id_habitacion
+     * @param idHabitacion
      * @return lista de resrevas
      */
-    List<DtoReserva> buscarPorIdHabitacion(Long id_habitacion);
+    List<DtoReserva> buscarPorIdHabitacion(Long idHabitacion);
 
     /**
      * permite listar por id cliente
-     * @param id_cliente
+     * @param idCliente
      * @return reserva
      */
-    List<DtoReserva> buscarPorIdCliente(Long id_cliente);
+    List<DtoReserva> buscarPorIdCliente(Long idCliente);
 
-    /**
-     * permite obtener el precio de la habitacion
-     * @param id_habitacion
-     * @return precio habitacion
-     */
-    DtoReserva obtenerPrecioHabitacion(Long id_habitacion);
+
 }

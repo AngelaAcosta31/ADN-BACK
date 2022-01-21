@@ -24,43 +24,44 @@ public class Reserva {
 
     private Long id;
     private Double valor;
-    private LocalDate fecha_entrada;
-    private LocalDate fecha_salida;
-    private Long id_habitacion;
-    private Long id_cliente;
+    private LocalDate fechaEntrada;
+    private LocalDate fechaSalida;
+    private Long idHabitacion;
+    private Long idCliente;
 
     private Double precioHabitacion;
 
-    public Reserva(Long id, Double valor, LocalDate fecha_entrada, LocalDate fecha_salida, Long id_habitacion, Long id_cliente) {
+    public Reserva(){}
 
-        validarObligatorio(fecha_entrada, SE_DEBE_INGRESAR_FECHA_ENTRADA);
-        validarObligatorio(valor, SE_DEBE_INGRESAR_UN_VALOR);
-        validarObligatorio(id_habitacion, SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION);
-        validarObligatorio(id_cliente, SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE);
+    public Reserva(Long id, Double valor, LocalDate fechaEntrada, LocalDate fechaSalida, Long idHabitacion, Long idCliente) {
+
+        validarObligatorio(fechaEntrada, SE_DEBE_INGRESAR_FECHA_ENTRADA);
+        //validarObligatorio(valor, SE_DEBE_INGRESAR_UN_VALOR);
+        validarObligatorio(idHabitacion, SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION);
+        validarObligatorio(idCliente, SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE);
 
 
         this.id = id;
-        this.valor = calcularTotal(valor, fecha_entrada, fecha_salida);
-        this.fecha_entrada = fecha_entrada;
-        this.fecha_salida = fecha_salida;
-        this.id_habitacion = id_habitacion;
-        this.id_cliente = id_cliente;
+        this.valor = calcularTotal(valor, fechaEntrada, fechaSalida);
+        this.fechaEntrada = fechaEntrada;
+        this.fechaSalida = fechaSalida;
+        this.idHabitacion = idHabitacion;
+        this.idCliente = idCliente;
     }
    // metodo para consulta del precio
 
 
 
 
-    public Double calcularTotal(Double precioHabitacion, LocalDate fecha_entrada, LocalDate fecha_salida){
-       // Double total=0.0;
+    public Double calcularTotal(Double precioHabitacion, LocalDate fechaEntrada, LocalDate fechaSalida){
         Integer totalDias =0;
-        DayOfWeek diasDeLaSemana = fecha_entrada.getDayOfWeek();
+        DayOfWeek diasDeLaSemana = fechaEntrada.getDayOfWeek();
         //los fines de semana el valor aumenta un 20% para temporada alta
         if(diasDeLaSemana == DayOfWeek.FRIDAY || diasDeLaSemana == DayOfWeek.SATURDAY || diasDeLaSemana == DayOfWeek.SUNDAY){
             // recibo la cantidad de dias que estara hospedado el cliente
-            totalDias = totalDias(fecha_entrada,fecha_salida);
+            totalDias = totalDias(fechaEntrada,fechaSalida);
             // se revisa la fecha de entrada para saber en que temporada esta
-            if(temporadaBajaoAlta(fecha_entrada,fecha_salida).equals("TEMPORADA ALTA")){
+            if(temporadaBajaoAlta(fechaEntrada,fechaSalida).equals("TEMPORADA ALTA")){
                 // la temporada alta aumenta un 40% + 20% de los fines de semana
                 return (totalDias * precioHabitacion) + (totalDias * precioHabitacion * 0.2) + (totalDias * precioHabitacion * 0.4);
             }else{
@@ -70,9 +71,9 @@ public class Reserva {
 
         }else{
             // recibo la cantidad de dias que estara hospedado el cliente
-            totalDias= totalDias(fecha_entrada,fecha_salida);
+            totalDias= totalDias(fechaEntrada,fechaSalida);
             // se revisa la fecha de entrada del cliente para determinar en que temporada esta
-            if(temporadaBajaoAlta(fecha_entrada,fecha_salida).equals("TEMPORADA ALTA")){
+            if(temporadaBajaoAlta(fechaEntrada,fechaSalida).equals("TEMPORADA ALTA")){
                 // la temporada alta aumenta un 40%
                 return (totalDias * precioHabitacion) + (totalDias * precioHabitacion * 0.4);
             }else{
@@ -83,31 +84,29 @@ public class Reserva {
         }
     }
 
-    public Integer totalDias(LocalDate fecha_entrada, LocalDate fecha_salida){
+    public Integer totalDias(LocalDate fechaEntrada, LocalDate fechaSalida){
         Integer dias = 0;
-        //revisar este metodo
-        //TemporalUnit unidadTemporalEnDias = ChronoUnit.DAYS;
-        dias = fecha_salida.getDayOfYear() - fecha_entrada.getDayOfYear();
+        dias = fechaSalida.getDayOfYear() - fechaEntrada.getDayOfYear();
         return dias;
     }
 
-    public String temporadaBajaoAlta(LocalDate fecha_entrada, LocalDate fecha_salida){
+    public String temporadaBajaoAlta(LocalDate fechaEntrada, LocalDate fechaSalida){
         String TEMPORADA_ALTA = "TEMPORADA ALTA";
         String TEMPORADA_BAJA = "TEMPORADA BAJA";
 
         // Si la fecha de entrada es en temporada baja y la fecha de salida es en temporada alta
         // se mantendra el costo de la temporada baja
-        if((fecha_entrada.getMonth() == Month.MAY && fecha_salida.getMonth() == Month.JUNE) ||
-                (fecha_entrada.getMonth() == Month.NOVEMBER && fecha_salida.getMonth() == Month.DECEMBER)){
+        if((fechaEntrada.getMonth() == Month.MAY && fechaSalida.getMonth() == Month.JUNE) ||
+                (fechaEntrada.getMonth() == Month.NOVEMBER && fechaSalida.getMonth() == Month.DECEMBER)){
             return TEMPORADA_BAJA;
         }
 
         // si la fecha de entrada es en estos meses sin importar cuando es la fecha de salida es TEMPORADA ALTA
-        if(fecha_entrada.getMonth() == Month.JANUARY ||
-                fecha_entrada.getMonth() == Month.JUNE ||
-                fecha_entrada.getMonth() == Month.JULY ||
-                fecha_entrada.getMonth() == Month.AUGUST ||
-                fecha_entrada.getMonth() == Month.DECEMBER){
+        if(fechaEntrada.getMonth() == Month.JANUARY ||
+                fechaEntrada.getMonth() == Month.JUNE ||
+                fechaEntrada.getMonth() == Month.JULY ||
+                fechaEntrada.getMonth() == Month.AUGUST ||
+                fechaEntrada.getMonth() == Month.DECEMBER){
             return TEMPORADA_ALTA;
         }else{
             return TEMPORADA_BAJA;

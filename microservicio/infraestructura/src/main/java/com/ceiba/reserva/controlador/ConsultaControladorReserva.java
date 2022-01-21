@@ -20,19 +20,19 @@ public class ConsultaControladorReserva {
     private final ManejadorListarPorFechaSalidaReserva manejadorListarPorFechaSalidaReserva;
     private final ManejadorListarPorIdHabitacionReserva manejadorListarPorIdHabitacionReserva;
     private final ManejadorBuscarPorIdClienteReserva manejadorBuscarPorIdClienteReserva;
-    private final ManejadorObtenerPrecioHabitacion manejadorObtenerPrecioHabitacion;
+
 
     public ConsultaControladorReserva(ManejadorListarReserva manejadorListarReserva,
                                       ManejadorListarPorFechaEntradaReserva manejadorListarPorFechaEntradaReserva,
                                       ManejadorListarPorFechaSalidaReserva manejadorListarPorFechaSalidaReserva,
                                       ManejadorListarPorIdHabitacionReserva manejadorListarPorIdHabitacionReserva,
-                                      ManejadorBuscarPorIdClienteReserva manejadorBuscarPorIdClienteReserva, ManejadorObtenerPrecioHabitacion manejadorObtenerPrecioHabitacion) {
+                                      ManejadorBuscarPorIdClienteReserva manejadorBuscarPorIdClienteReserva) {
         this.manejadorListarReserva = manejadorListarReserva;
         this.manejadorListarPorFechaEntradaReserva = manejadorListarPorFechaEntradaReserva;
         this.manejadorListarPorFechaSalidaReserva = manejadorListarPorFechaSalidaReserva;
         this.manejadorListarPorIdHabitacionReserva = manejadorListarPorIdHabitacionReserva;
         this.manejadorBuscarPorIdClienteReserva = manejadorBuscarPorIdClienteReserva;
-        this.manejadorObtenerPrecioHabitacion = manejadorObtenerPrecioHabitacion;
+
     }
 
     @GetMapping
@@ -41,33 +41,28 @@ public class ConsultaControladorReserva {
         return this.manejadorListarReserva.ejecutar();
     }
 
-    @GetMapping("/fecha_entrada/{fecha_entrada}")
+    @GetMapping("/fecha_entrada/{fechaEntrada}")
     @ApiOperation("Listar por fecha de entrada")
-    public List<DtoReserva> listarPorFechaEntrada(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fecha_entrada){
-        return this.manejadorListarPorFechaEntradaReserva.ejecutar(fecha_entrada);
+    public List<DtoReserva> listarPorFechaEntrada(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaEntrada){
+        return this.manejadorListarPorFechaEntradaReserva.ejecutar(fechaEntrada);
     }
 
-    @GetMapping("/fecha_salida/{fecha_salida}")
+    @GetMapping("/fecha_salida/{fechaSalida}")
     @ApiOperation("Listar por fecha salida")
-    public List<DtoReserva> listarPorFechaSalida(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd")LocalDate fecha_salida){
-        return this.manejadorListarPorFechaSalidaReserva.ejecutar(fecha_salida);
+    public List<DtoReserva> listarPorFechaSalida(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd")LocalDate fechaSalida){
+        return this.manejadorListarPorFechaSalidaReserva.ejecutar(fechaSalida);
     }
 
-    @GetMapping("/id_habitacion/{id_habitacion}")
+    @GetMapping("/id_habitacion/{idHabitacion}")
     @ApiOperation("Listar por id_habitacion")
-    public List<DtoReserva> listarPorIdHabitacion(@PathVariable Long id_habitacion){
-        return this.manejadorListarPorIdHabitacionReserva.ejecutar(id_habitacion);
+    public List<DtoReserva> listarPorIdHabitacion(@PathVariable Long idHabitacion){
+        return this.manejadorListarPorIdHabitacionReserva.ejecutar(idHabitacion);
     }
 
-    @GetMapping("/id_cliente/{id_cliente}")
+    @GetMapping("/id_cliente/{idCliente}")
     @ApiOperation("Listar por id_cliente")
-    public List<DtoReserva> listarPorIdCliente(@PathVariable Long id_cliente){
-        return this.manejadorBuscarPorIdClienteReserva.ejecutar(id_cliente);
+    public List<DtoReserva> listarPorIdCliente(@PathVariable Long idCliente){
+        return this.manejadorBuscarPorIdClienteReserva.ejecutar(idCliente);
     }
 
-    @GetMapping("/precioHabitacion/{id_habitacion}")
-    @ApiOperation("Obtiene el precio base de la habitacion segun el id de la habitacion")
-    public DtoReserva obtenerPrecioHabitacion(@PathVariable Long id_habitacion){
-        return this.manejadorObtenerPrecioHabitacion.ejecutar(id_habitacion);
-    }
 }

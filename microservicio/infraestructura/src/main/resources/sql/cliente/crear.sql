@@ -1,2 +1,2 @@
-INSERT INTO cliente ( nombre,apellido,numero_identificacion,telefono,correo,sexo,fecha_nacimiento,direccion)
-VALUES (:nombre,:apellido,:numero_identificacion,:telefono,:correo,:sexo,:fecha_nacimiento,:direccion);
+INSERT INTO cliente ( nombre,apellido,numeroIdentificacion,telefono,correo,sexo,fechaNacimiento,direccion)
+VALUES (:nombre,:apellido,:numeroIdentificacion,:telefono,:correo,:sexo,:fechaNacimiento,:direccion);

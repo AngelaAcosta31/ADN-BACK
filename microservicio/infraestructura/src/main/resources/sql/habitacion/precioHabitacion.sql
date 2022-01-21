@@ -1,2 +1,2 @@
 select precio from habitacion
-where id = :id;
+where id = :id

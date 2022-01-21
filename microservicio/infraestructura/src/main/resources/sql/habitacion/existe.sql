@@ -1,1 +1,1 @@
-select count(1) from habitacion where numero_habitacion = :numero_habitacion
+select count(1) from habitacion where numeroHabitacion = :numeroHabitacion

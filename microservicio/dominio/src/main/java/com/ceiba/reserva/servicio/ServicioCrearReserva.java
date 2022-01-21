@@ -1,6 +1,7 @@
 package com.ceiba.reserva.servicio;
 
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
+import com.ceiba.habitacion.modelo.entidad.Habitacion;
 import com.ceiba.habitacion.puerto.dao.DaoHabitacion;
 import com.ceiba.habitacion.puerto.repositorio.RepositorioHabitacion;
 import com.ceiba.reserva.modelo.entidad.Reserva;
@@ -12,14 +13,23 @@ public class ServicioCrearReserva {
 
     private final RepositorioReserva repositorioReserva;
     //private final RepositorioHabitacion repositorioHabitacion;
-    //private final DaoHabitacion daoHabitacion;
+    private final DaoHabitacion daoHabitacion;
 
-    public ServicioCrearReserva(RepositorioReserva repositorioReserva, RepositorioHabitacion repositorioHabitacion) {
+    public ServicioCrearReserva(RepositorioReserva repositorioReserva, RepositorioHabitacion repositorioHabitacion, DaoHabitacion daoHabitacion) {
 
         this.repositorioReserva = repositorioReserva;
+        this.daoHabitacion = daoHabitacion;
     }
 
     public Long ejecutar(Reserva reserva){
+        /*Double val = 0.0;
+        Double valorTotal = 0.0;
+        validarExistenciaPrevia(reserva);
+        Reserva reserva1 = new Reserva();
+        Habitacion habitacion = new Habitacion();
+        habitacion.setPrecio(new Double(0.0));
+        valorTotal = reserva1.calcularTotal(habitacion.getPrecio(),reserva.getFecha_entrada(),reserva.getFecha_salida());
+        return this.repositorioReserva.crear(reserva);*/
         validarExistenciaPrevia(reserva);
         return this.repositorioReserva.crear(reserva);
     }
@@ -29,5 +39,9 @@ public class ServicioCrearReserva {
         if(existe){
             throw new ExcepcionDuplicidad(LA_RESERVA_YA_EXISTE_EN_EL_SISTEMA);
         }
+    }
+
+    private Double obtenerPrecioHabitacion(Reserva reserva, DaoHabitacion daoHabitacion){
+        return this.daoHabitacion.precioHabitacion(reserva.getIdHabitacion());
     }
 }

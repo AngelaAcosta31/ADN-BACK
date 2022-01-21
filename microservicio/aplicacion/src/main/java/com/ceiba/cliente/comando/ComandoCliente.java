@@ -17,10 +17,10 @@ public class ComandoCliente {
     private Long   id;
     private String nombre;
     private String apellido;
-    private String numero_identificacion;
+    private String numeroIdentificacion;
     private String telefono;
     private String correo;
     private String sexo;
-    private LocalDate fecha_nacimiento;
+    private LocalDate fechaNacimiento;
     private String direccion;
 }

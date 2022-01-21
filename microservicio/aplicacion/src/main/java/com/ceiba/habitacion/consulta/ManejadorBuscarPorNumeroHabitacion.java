@@ -12,7 +12,7 @@ public class ManejadorBuscarPorNumeroHabitacion {
     public ManejadorBuscarPorNumeroHabitacion(DaoHabitacion daoHabitacion) {
         this.daoHabitacion = daoHabitacion;
     }
-    public DtoHabitacion ejecutar(String numero_habitacion){
-        return this.daoHabitacion.buscarPorNumeroHabitacion(numero_habitacion);
+    public DtoHabitacion ejecutar(String numeroHabitacion){
+        return this.daoHabitacion.buscarPorNumeroHabitacion(numeroHabitacion);
     }
 }

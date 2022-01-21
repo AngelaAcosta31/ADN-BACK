@@ -45,7 +45,7 @@ public class ComandoControladorHabitacionTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(habitacion)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{valor:3}"));
+                .andExpect(content().json("{valor:4}"));
     }
 
     @Test

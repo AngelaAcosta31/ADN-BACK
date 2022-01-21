@@ -15,7 +15,7 @@ public class ManejadorListarPorNumeroCamasHabitacion {
         this.daoHabitacion = daoHabitacion;
     }
 
-    public List<DtoHabitacion> ejecutar(Integer numeroCamas){
-        return this.daoHabitacion.buscarPorNumeroCamas(numeroCamas);
+    public List<DtoHabitacion> ejecutar(Integer noCamas){
+        return this.daoHabitacion.buscarPorNumeroCamas(noCamas);
     }
 }

@@ -8,44 +8,44 @@ public class ComandoReservaTestDataBuilder {
 
     private Long id;
     private Double valor;
-    private LocalDate fecha_entrada;
-    private LocalDate fecha_salida;
-    private Long id_habitacion;
-    private Long id_cliente;
+    private LocalDate fechaEntrada;
+    private LocalDate fechaSalida;
+    private Long idHabitacion;
+    private Long idCliente;
 
     public ComandoReservaTestDataBuilder(){
 
         this.valor = 20000.00;
-        this.fecha_entrada = LocalDate.of(2021,10,15);
-        this.fecha_salida = LocalDate.of(2021,10,30);
-        this.id_habitacion = 1L;
-        this.id_cliente = 1L;
+        this.fechaEntrada = LocalDate.of(2021,10,15);
+        this.fechaSalida = LocalDate.of(2021,10,30);
+        this.idHabitacion = 1L;
+        this.idCliente = 1L;
     }
 
     public ComandoReservaTestDataBuilder conId(Long id){
         this.id = id;
         return this;
     }
-    public ComandoReservaTestDataBuilder conFechaEntrada(LocalDate fecha_entrada){
-        this.fecha_entrada = fecha_entrada;
+    public ComandoReservaTestDataBuilder conFechaEntrada(LocalDate fechaEntrada){
+        this.fechaEntrada = fechaEntrada;
         return this;
     }
-    public ComandoReservaTestDataBuilder conFechaSalida(LocalDate fecha_salida){
-        this.fecha_salida = fecha_salida;
+    public ComandoReservaTestDataBuilder conFechaSalida(LocalDate fechaSalida){
+        this.fechaSalida = fechaSalida;
         return this;
     }
-    public ComandoReservaTestDataBuilder conIdHabitacion(Long id_habitacion){
-        this.id_habitacion = id_habitacion;
+    public ComandoReservaTestDataBuilder conIdHabitacion(Long idHabitacion){
+        this.idHabitacion = idHabitacion;
         return this;
     }
 
-    public ComandoReservaTestDataBuilder conIdCliente(Long id_cliente){
-        this.id_cliente = id_cliente;
+    public ComandoReservaTestDataBuilder conIdCliente(Long idCliente){
+        this.idCliente = idCliente;
         return this;
     }
 
     public ComandoReserva build(){
-        return new ComandoReserva(id,valor,fecha_entrada,fecha_salida,id_habitacion,id_cliente);
+        return new ComandoReserva(id,valor,fechaEntrada,fechaSalida,idHabitacion,idCliente);
     }
 
 

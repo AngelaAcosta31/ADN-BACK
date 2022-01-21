@@ -61,9 +61,9 @@ public class RepositorioHabitacionPostgres implements RepositorioHabitacion {
     }
 
     @Override
-    public boolean existePorNumeroHabitacion(String numero_habitacion) {
+    public boolean existePorNumeroHabitacion(String numeroHabitacion) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("numero_habitacion", numero_habitacion);
+        paramSource.addValue("numeroHabitacion", numeroHabitacion);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorNumeroHabitacion,paramSource, Boolean.class);
     }

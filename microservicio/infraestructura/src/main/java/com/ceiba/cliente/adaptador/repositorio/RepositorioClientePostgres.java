@@ -53,9 +53,9 @@ public class RepositorioClientePostgres implements RepositorioCliente {
     }
 
     @Override
-    public boolean existePorNumeroIdentificacion(String numero_identificacion) {
+    public boolean existePorNumeroIdentificacion(String numeroIdentificacion) {
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-        mapSqlParameterSource.addValue("numero_identificacion", numero_identificacion);
+        mapSqlParameterSource.addValue("numeroIdentificacion", numeroIdentificacion);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorNumeroIdentificacion, mapSqlParameterSource, Boolean.class);
     }
 }

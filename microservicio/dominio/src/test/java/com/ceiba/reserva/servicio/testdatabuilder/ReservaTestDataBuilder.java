@@ -17,7 +17,7 @@ public class ReservaTestDataBuilder {
 
     public ReservaTestDataBuilder(){
 
-        this.valor = 4000.00;
+        this.valor = 40000.00;
         this.fecha_entrada = LocalDate.of(2021,06,20);
         this.fecha_salida = LocalDate.of(2021,06,30);
         this.id_habitacion = 1L;

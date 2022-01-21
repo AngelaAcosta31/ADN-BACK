@@ -17,14 +17,14 @@ public class MapeoCliente implements RowMapper<DtoCliente>, MapperResult {
         Long id = resultSet.getLong("id");
         String nombre = resultSet.getString("nombre");
         String apellido = resultSet.getString("apellido");
-        String numero_identificacion = resultSet.getString("numero_identificacion");
+        String numeroIdentificacion = resultSet.getString("numeroIdentificacion");
         String telefono = resultSet.getString("telefono");
         String correo = resultSet.getString("correo");
         String sexo = resultSet.getString("sexo");
-        LocalDate fecha_nacimiento = extraerLocalDate(resultSet, "fecha_nacimiento");
+        LocalDate fechaNacimiento = extraerLocalDate(resultSet, "fechaNacimiento");
         String direccion = resultSet.getString("direccion");
 
-        return new DtoCliente(id,nombre,apellido,numero_identificacion,telefono,correo,sexo,fecha_nacimiento,direccion);
+        return new DtoCliente(id,nombre,apellido,numeroIdentificacion,telefono,correo,sexo,fechaNacimiento,direccion);
     }
 
 

@@ -1,11 +1,13 @@
 package com.ceiba.habitacion.modelo.entidad;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarMenor;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
+@Setter
 public class Habitacion {
 
     // validaciones
@@ -21,33 +23,41 @@ public class Habitacion {
 
 
     private Long id;
-    private String numero_habitacion;
+    private String numeroHabitacion;
     private String tipo;
-    private Integer no_camas;
-    private Integer no_bannos;
+    private Integer noCamas;
+    private Integer noBannos;
     private String descripcion;
     private Double precio;
     private String piso;
     private String estado;
 
-    public Habitacion(Long id, String numero_habitacion, String tipo, Integer no_camas, Integer no_bannos, String descripcion, Double precio, String piso, String estado) {
+    public Habitacion(){}
+
+    public Habitacion(Long id, String numeroHabitacion, String tipo, Integer noCamas, Integer noBannos, String descripcion, Double precio, String piso, String estado) {
 
         //Nos permite validar que si no se introduce un valor a cada atributo mande el mensaje
-        validarObligatorio(numero_habitacion, SE_DEBE_INGRESAR_NUMERO_HABITACION);
+        validarObligatorio(numeroHabitacion, SE_DEBE_INGRESAR_NUMERO_HABITACION);
         validarObligatorio(tipo, SE_DEBE_INGRESAR_EL_TIPO_DE_HABITACION);
-        validarObligatorio(no_camas, SE_DEBE_INGRESAR_EL_NUMERO_DE_CAMAS);
-        validarObligatorio(no_bannos, SE_DEBE_INGRESAR_EL_NUMERO_DE_BANIOS);
+        validarObligatorio(noCamas, SE_DEBE_INGRESAR_EL_NUMERO_DE_CAMAS);
+        validarObligatorio(noBannos, SE_DEBE_INGRESAR_EL_NUMERO_DE_BANIOS);
         validarObligatorio(descripcion, SE_DEBE_INGRESAR_LA_DESCRIPCION);
         validarObligatorio(estado, SE_DEBE_INGRESAR_UN_ESTADO);
 
         this.id = id;
-        this.numero_habitacion = numero_habitacion;
+        this.numeroHabitacion = numeroHabitacion;
         this.tipo = tipo;
-        this.no_camas = no_camas;
-        this.no_bannos = no_bannos;
+        this.noCamas = noCamas;
+        this.noBannos = noBannos;
         this.descripcion = descripcion;
         this.precio = precio;
         this.piso = piso;
         this.estado = estado;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+
 }

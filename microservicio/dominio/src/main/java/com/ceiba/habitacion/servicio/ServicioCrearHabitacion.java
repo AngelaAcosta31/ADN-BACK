@@ -22,7 +22,7 @@ public class ServicioCrearHabitacion {
     }
 
     private void validarExistenciaPrevia(Habitacion habitacion){
-        boolean existe = this.repositorioHabitacion.existePorNumeroHabitacion(habitacion.getNumero_habitacion());
+        boolean existe = this.repositorioHabitacion.existePorNumeroHabitacion(habitacion.getNumeroHabitacion());
         if(existe){
             throw new ExcepcionDuplicidad(LA_HABITACION_YA_EXISTE_EN_EL_SISTEMA);
         }

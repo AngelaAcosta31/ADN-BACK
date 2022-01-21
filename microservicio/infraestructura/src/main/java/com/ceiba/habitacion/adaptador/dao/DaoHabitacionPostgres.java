@@ -32,6 +32,8 @@ public class DaoHabitacionPostgres implements DaoHabitacion {
     @SqlStatement(namespace = "habitacion", value = "listarPorTipo")
     private static String sqlListarPorTipo;
 
+    @SqlStatement(namespace = "habitacion", value = "precioHabitacion")
+    private static String sqlPrecioHabitacion;
 
     public DaoHabitacionPostgres(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -51,10 +53,10 @@ public class DaoHabitacionPostgres implements DaoHabitacion {
     }
 
     @Override
-    public List<DtoHabitacion> buscarPorNumeroCamas(int no_camas) {
+    public List<DtoHabitacion> buscarPorNumeroCamas(int noCamas) {
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-        mapSqlParameterSource.addValue("no_camas", no_camas);
+        mapSqlParameterSource.addValue("noCamas", noCamas);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorNumeroCamas, mapSqlParameterSource, new MapeoHabitacion());
     }
 
@@ -75,10 +77,17 @@ public class DaoHabitacionPostgres implements DaoHabitacion {
     }
 
     @Override
-    public DtoHabitacion buscarPorNumeroHabitacion(String numero_habitacion) {
+    public DtoHabitacion buscarPorNumeroHabitacion(String numeroHabitacion) {
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-        mapSqlParameterSource.addValue("numero_habitacion", numero_habitacion);
+        mapSqlParameterSource.addValue("numeroHabitacion", numeroHabitacion);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlBuscarPorNumeroHabitacion, mapSqlParameterSource, new MapeoHabitacion()).stream().findFirst().get();
+    }
+
+    @Override
+    public Double precioHabitacion(Long idHabitacion) {
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("id", idHabitacion);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlPrecioHabitacion,mapSqlParameterSource, Double.class);
     }
 }

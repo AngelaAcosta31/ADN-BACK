@@ -37,11 +37,11 @@ public class ClienteTest {
         assertEquals(1, cliente.getId());
         assertEquals("PAULA", cliente.getNombre());
         assertEquals("ACOSTA", cliente.getApellido());
-        assertEquals("1005874281",cliente.getNumero_identificacion());
+        assertEquals("1005874281",cliente.getNumeroIdentificacion());
         assertEquals("3104542756",cliente.getTelefono());
         assertEquals("PAULITA@HOTMAIL.COM",cliente.getCorreo());
         assertEquals("F",cliente.getSexo());
-        assertEquals(fecha_nacimiento, cliente.getFecha_nacimiento());
+        assertEquals(fecha_nacimiento, cliente.getFechaNacimiento());
         assertEquals("CALLE 30 # 1-160", cliente.getDireccion());
     }
 

@@ -12,11 +12,11 @@ public class FabricaCliente {
                 comandoCliente.getId(),
                 comandoCliente.getNombre(),
                 comandoCliente.getApellido(),
-                comandoCliente.getNumero_identificacion(),
+                comandoCliente.getNumeroIdentificacion(),
                 comandoCliente.getTelefono(),
                 comandoCliente.getCorreo(),
                 comandoCliente.getSexo(),
-                comandoCliente.getFecha_nacimiento(),
+                comandoCliente.getFechaNacimiento(),
                 comandoCliente.getDireccion()
 
         );

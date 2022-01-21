@@ -31,11 +31,11 @@ public class ReservaTest {
         Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conIdCliente(1L).build();
         //assert
         assertEquals(1,reserva.getId());
-        assertEquals(64000.0, reserva.getValor());
-        assertEquals(fecha_entrada,reserva.getFecha_entrada());
-        assertEquals(fecha_salida,reserva.getFecha_salida());
-        assertEquals(1, reserva.getId_habitacion());
-        assertEquals(1,reserva.getId_cliente());
+        assertEquals(640000.0, reserva.getValor());
+        assertEquals(fecha_entrada,reserva.getFechaEntrada());
+        assertEquals(fecha_salida,reserva.getFechaSalida());
+        assertEquals(1, reserva.getIdHabitacion());
+        assertEquals(1,reserva.getIdCliente());
 
 
     }
@@ -48,16 +48,6 @@ public class ReservaTest {
         BasePrueba.assertThrows(()->{
             reservaTestDataBuilder.build();
         }, ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_FECHA_ENTRADA);
-    }
-
-    @Test
-    void deberiaFallarSinValor(){
-        //Arrange
-        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conIdReserva(1L).conValor(null);
-        //act-assert
-        BasePrueba.assertThrows(()->{
-            reservaTestDataBuilder.build();
-        }, ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_UN_VALOR);
     }
 
     @Test
@@ -80,37 +70,84 @@ public class ReservaTest {
         }, ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE);
     }
 
-    //funciona pero se debe de corregir NO ESTA COMPLETO
     @Test
-    void debeCalcularElValorEnTemporadaAlta(){
+    void debeCalcularElValorEnTemporadaAltaConEntradaElFinDeSemana(){
         LocalDate fecha_entrada = LocalDate.of(2021,06,20);
         LocalDate fecha_salida = LocalDate.of(2021,06,30);
         //act
         Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
 
-        assertEquals(64000.0, reserva.getValor());
+        assertEquals(640000.0, reserva.getValor());
     }
 
-    //funciona pero se debe de corregir NO ESTA COMPLETO
     @Test
-    void debeCalcularElValorEnTemporadaBaja(){
-        LocalDate fecha_entrada = LocalDate.of(2021,06,20);
-        LocalDate fecha_salida = LocalDate.of(2021,06,30);
+    void debeCalcularElValorEnTemporadaBajaConEntradaElFinDeSemana(){
+        LocalDate fecha_entrada = LocalDate.of(2021,02,20);
+        LocalDate fecha_salida = LocalDate.of(2021,02,27);
         //act
         Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
 
-        assertEquals(64000.0, reserva.getValor());
+        assertEquals(308000.0, reserva.getValor());
     }
 
-    //funciona pero se debe de corregir NO ESTA COMPLETO
     @Test
-    void debeCalcularElValorEnFinDeSemana(){
-        LocalDate fecha_entrada = LocalDate.of(2021,06,20);
-        LocalDate fecha_salida = LocalDate.of(2021,06,30);
+    void debeCalcularElValorEnTemporadaAltaConEntradaEnLaSemana(){
+        LocalDate fecha_entrada = LocalDate.of(2021,8,9);
+        LocalDate fecha_salida = LocalDate.of(2021,8,12);
         //act
         Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
 
-        assertEquals(64000.0, reserva.getValor());
+        assertEquals(168000.0, reserva.getValor());
+    }
+
+    @Test
+    void debeCalcularElValorEnTemporadaBajaConEntradaEnLaSemana(){
+        LocalDate fecha_entrada = LocalDate.of(2021,03,22);
+        LocalDate fecha_salida = LocalDate.of(2021,03,28);
+        //act
+        Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
+
+        assertEquals(216000.0, reserva.getValor());
+    }
+
+    @Test
+    void debeCalcularElValorConEntradaEnTemporadaBajaDiaNormalYSalidaEnTemporadaAlta(){
+        LocalDate fecha_entrada = LocalDate.of(2021,5,31);
+        LocalDate fecha_salida = LocalDate.of(2021,6,12);
+        //act
+        Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
+
+        assertEquals(432000.0, reserva.getValor());
+    }
+
+    @Test
+    void debeCalcularElValorConEntradaEnTemporadaAltaDiaNormalYSalidaEnTemporadaBaja(){
+        LocalDate fecha_entrada = LocalDate.of(2021,8,26);
+        LocalDate fecha_salida = LocalDate.of(2021,9,8);
+        //act
+        Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
+
+        assertEquals(728000.0, reserva.getValor());
+    }
+
+    @Test
+    void debeCalcularElValorConEntradaEnTemporadaBajaFinDeSemanaYSalidaEnTemporadaAlta(){
+        LocalDate fecha_entrada = LocalDate.of(2021,5,30);
+        LocalDate fecha_salida = LocalDate.of(2021,6,12);
+        //act
+        Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
+
+        assertEquals(572000.0, reserva.getValor());
+    }
+
+    @Test
+    void debeCalcularElValorConEntradaEnTemporadaAltaFinDeSemanaYSalidaEnTemporadaBaja(){
+        LocalDate fecha_entrada = LocalDate.of(2021,8,28);
+        LocalDate fecha_salida = LocalDate.of(2021,9,8);
+        //act
+        Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
+
+        assertEquals(704000.0, reserva.getValor());
     }
 
 

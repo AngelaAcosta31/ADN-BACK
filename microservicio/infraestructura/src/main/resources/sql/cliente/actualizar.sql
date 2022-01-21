@@ -1,10 +1,10 @@
 update cliente
 set nombre = :nombre,
     apellido = :apellido,
-    numero_identificacion = :numero_identificacion,
+    numeroIdentificacion = :numeroIdentificacion,
     telefono = :telefono,
     correo = :correo,
     sexo = :sexo,
-    fecha_nacimiento = :fecha_nacimiento,
+    fechaNacimiento = :fechaNacimiento,
     direccion = :direccion
 where id = :id

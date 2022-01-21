@@ -22,7 +22,7 @@ public class ServicioActualizarCliente {
     }
 
     private void validarExistenciaPrevia(Cliente cliente){
-        boolean existe = this.repositorioCliente.existePorNumeroIdentificacion(cliente.getNumero_identificacion());
+        boolean existe = this.repositorioCliente.existePorNumeroIdentificacion(cliente.getNumeroIdentificacion());
         if(!existe){
             throw new ExcepcionDuplicidad(EL_CLIENTE_NO_EXISTE);
         }

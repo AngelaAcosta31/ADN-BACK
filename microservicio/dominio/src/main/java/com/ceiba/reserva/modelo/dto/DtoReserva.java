@@ -11,8 +11,8 @@ public class DtoReserva {
 
     private Long id;
     private Double valor;
-    private LocalDate fecha_entrada;
-    private LocalDate fecha_salida;
+    private LocalDate fechaEntrada;
+    private LocalDate fechaSalida;
     private Long id_habitacion;
     private Long id_cliente;
 

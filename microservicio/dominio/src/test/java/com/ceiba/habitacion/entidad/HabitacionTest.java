@@ -29,9 +29,9 @@ public class HabitacionTest {
         Habitacion habitacion = new HabitacionTestDataBuilder().conIdHabitacion(1L).conNumeroHabitacion("120").build();
         //Assert
         assertEquals(1, habitacion.getId());
-        assertEquals("120", habitacion.getNumero_habitacion());
-        assertEquals(1,habitacion.getNo_camas());
-        assertEquals(1,habitacion.getNo_bannos());
+        assertEquals("120", habitacion.getNumeroHabitacion());
+        assertEquals(1,habitacion.getNoCamas());
+        assertEquals(1,habitacion.getNoBannos());
         assertEquals("HABITACION CON CAMA SENCILLA, TV, NEVERA Y BAÑO", habitacion.getDescripcion());
         assertEquals(20000.00, habitacion.getPrecio());
         assertEquals("1",habitacion.getPiso());

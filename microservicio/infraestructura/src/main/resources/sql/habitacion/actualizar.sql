@@ -1,8 +1,8 @@
 update habitacion
-set numero_habitacion = :numero_habitacion,
+set numeroHabitacion = :numeroHabitacion,
     tipo = :tipo,
-    no_camas = :no_camas,
-    no_bannos = :no_bannos,
+    noCamas = :noCamas,
+    noBannos = :noBannos,
     descripcion = :descripcion,
     precio = :precio,
     piso = :piso,

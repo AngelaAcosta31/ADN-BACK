@@ -13,7 +13,7 @@ public class ManejadorBuscarPorNumeroIdentificacionCliente {
         this.daoCliente = daoCliente;
     }
 
-    public DtoCliente ejecutar(String numero_identificacion){
-        return this.daoCliente.buscarPorNumeroIdentificacion(numero_identificacion);
+    public DtoCliente ejecutar(String numeroIdentificacion){
+        return this.daoCliente.buscarPorNumeroIdentificacion(numeroIdentificacion);
     }
 }

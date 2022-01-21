@@ -17,7 +17,7 @@ public interface DaoCliente {
      * @return un cliente
      */
 
-    DtoCliente buscarPorNumeroIdentificacion(String numero_identificacion);
+    DtoCliente buscarPorNumeroIdentificacion(String numeroIdentificacion);
 
     /**
      * Permite buscar al cliente por correo

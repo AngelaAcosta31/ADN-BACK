@@ -35,10 +35,10 @@ public class DaoClientePostgres implements DaoCliente {
     }
 
     @Override
-    public DtoCliente buscarPorNumeroIdentificacion(String numero_identificacion) {
+    public DtoCliente buscarPorNumeroIdentificacion(String numeroIdentificacion) {
 
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-        mapSqlParameterSource.addValue("numero_identificacion", numero_identificacion);
+        mapSqlParameterSource.addValue("numeroIdentificacion", numeroIdentificacion);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlBuscarPorNumeroIdentificacion, mapSqlParameterSource, new MapeoCliente()).stream().findFirst().get();
     }
 

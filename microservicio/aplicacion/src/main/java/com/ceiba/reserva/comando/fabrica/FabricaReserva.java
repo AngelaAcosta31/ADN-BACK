@@ -11,10 +11,10 @@ public class FabricaReserva {
         return new Reserva(
                 comandoReserva.getId(),
                 comandoReserva.getValor(),
-                comandoReserva.getFecha_entrada(),
-                comandoReserva.getFecha_salida(),
-                comandoReserva.getId_habitacion(),
-                comandoReserva.getId_cliente()
+                comandoReserva.getFechaEntrada(),
+                comandoReserva.getFechaSalida(),
+                comandoReserva.getIdHabitacion(),
+                comandoReserva.getIdCliente()
         );
     }
 }

@@ -12,10 +12,10 @@ import lombok.Setter;
 public class ComandoHabitacion {
 
     private Long id;
-    private String numero_habitacion;
+    private String numeroHabitacion;
     private String tipo;
-    private Integer no_camas;
-    private Integer no_bannos;
+    private Integer noCamas;
+    private Integer noBannos;
     private String descripcion;
     private Double precio;
     private String piso;

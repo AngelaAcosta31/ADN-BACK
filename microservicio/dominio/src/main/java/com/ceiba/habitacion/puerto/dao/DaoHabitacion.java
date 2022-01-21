@@ -24,7 +24,7 @@ public interface DaoHabitacion {
      * permite listar habitaciones por numero de camas
      * @return lista de habitaciones
      */
-    List<DtoHabitacion> buscarPorNumeroCamas(int no_camas);
+    List<DtoHabitacion> buscarPorNumeroCamas(int noCamas);
 
     /**
      * Permite listar habitaciones por piso
@@ -42,6 +42,13 @@ public interface DaoHabitacion {
      * permite listar por numero de habitacion
      * @return una habitacion
      */
-    DtoHabitacion buscarPorNumeroHabitacion(String numero_habitacion);
+    DtoHabitacion buscarPorNumeroHabitacion(String numeroHabitacion);
 
+    /**
+     * permite traer el precio de la habitacion segun su id
+     * @param idHabitacion
+     * @return
+     * REVISAR PORQUE DEBERIA DEVOLVER UN DOUBLE NO UN DTO
+     */
+    Double precioHabitacion(Long idHabitacion);
 }

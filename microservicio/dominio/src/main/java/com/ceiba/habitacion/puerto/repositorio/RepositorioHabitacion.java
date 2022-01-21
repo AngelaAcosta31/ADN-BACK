@@ -31,10 +31,10 @@ public interface RepositorioHabitacion {
 
     /**
      * para validar si existe una habitacion por numero de habitacion
-     * @param numero_habitacion
+     * @param numeroHabitacion
      * @return existe o no
      */
-    boolean existePorNumeroHabitacion(String numero_habitacion);
+    boolean existePorNumeroHabitacion(String numeroHabitacion);
 
     /**
      * permite validar si existe una habitacion con ese id

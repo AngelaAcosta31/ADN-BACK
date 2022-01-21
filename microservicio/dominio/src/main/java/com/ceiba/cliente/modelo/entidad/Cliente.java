@@ -33,25 +33,25 @@ public class Cliente {
     private Long   id;
     private String nombre;
     private String apellido;
-    private String numero_identificacion;
+    private String numeroIdentificacion;
     private String telefono;
     private String correo;
     private String sexo;
-    private LocalDate fecha_nacimiento;
+    private LocalDate fechaNacimiento;
     private String direccion;
 
-    public Cliente(Long id, String nombre, String apellido, String numero_identificacion, String telefono, String correo, String sexo, LocalDate fecha_nacimiento, String direccion) {
+    public Cliente(Long id, String nombre, String apellido, String numeroIdentificacion, String telefono, String correo, String sexo, LocalDate fechaNacimiento, String direccion) {
 
         //Nos permite validar que si no se introduce un valor a cada atributo mande una excepcion
         validarObligatorio(nombre, SE_DEBE_INGRESAR_UN_NOMBRE);
         validarObligatorio(apellido, SE_DEBE_INGRESAR_UN_APELLIDO);
-        validarObligatorio(numero_identificacion, SE_DEBE_INGRESAR_UN_NUMERO_IDENTIFICACION);
+        validarObligatorio(numeroIdentificacion, SE_DEBE_INGRESAR_UN_NUMERO_IDENTIFICACION);
         validarObligatorio(telefono,SE_DEBE_INGRESAR_UN_TELEFONO);
         validarObligatorio(correo,SE_DEBE_INGRESAR_UN_CORREO);
         validarObligatorio(sexo, SE_DEBE_INGRESAR_SEXO);
-        validarObligatorio(fecha_nacimiento, SE_DEBE_INGRESAR_FECHA_NACIMIENTO);
+        validarObligatorio(fechaNacimiento, SE_DEBE_INGRESAR_FECHA_NACIMIENTO);
         validarObligatorio(direccion,SE_DEBE_INGRESAR_UNA_DIRECCION);
-        validarMenor(FECHA_ACTUAL, fecha_nacimiento,SE_DEBE_INGRESAR_UNA_FECHA_NACIMIENTO_VALIDA);
+        validarMenor(FECHA_ACTUAL, fechaNacimiento,SE_DEBE_INGRESAR_UNA_FECHA_NACIMIENTO_VALIDA);
         //validarSexo1(sexo,SE_DEBE_INGRESAR_F_O_M);
 
 
@@ -60,11 +60,11 @@ public class Cliente {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.numero_identificacion = numero_identificacion;
+        this.numeroIdentificacion = numeroIdentificacion;
         this.telefono = telefono;
         this.correo = correo;
         this.sexo = sexo;
-        this.fecha_nacimiento = fecha_nacimiento;
+        this.fechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
     }
 
