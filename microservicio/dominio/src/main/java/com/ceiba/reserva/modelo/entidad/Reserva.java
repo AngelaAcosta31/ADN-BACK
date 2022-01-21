@@ -20,7 +20,8 @@ public class Reserva {
     private static final String SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION = "Se debe ingresar el id de la habitación";
     private static final String SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE = "Se debe ingresar el id del cliente";
 
-
+    private static final String TEMPORADA_ALTA = "TEMPORADA ALTA";
+    private static final String TEMPORADA_BAJA = "TEMPORADA BAJA";
 
     private Long id;
     private Double valor;
@@ -29,14 +30,10 @@ public class Reserva {
     private Long idHabitacion;
     private Long idCliente;
 
-    private Double precioHabitacion;
-
-    public Reserva(){}
 
     public Reserva(Long id, Double valor, LocalDate fechaEntrada, LocalDate fechaSalida, Long idHabitacion, Long idCliente) {
 
         validarObligatorio(fechaEntrada, SE_DEBE_INGRESAR_FECHA_ENTRADA);
-        //validarObligatorio(valor, SE_DEBE_INGRESAR_UN_VALOR);
         validarObligatorio(idHabitacion, SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION);
         validarObligatorio(idCliente, SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE);
 
@@ -48,20 +45,17 @@ public class Reserva {
         this.idHabitacion = idHabitacion;
         this.idCliente = idCliente;
     }
-   // metodo para consulta del precio
-
-
-
 
     public Double calcularTotal(Double precioHabitacion, LocalDate fechaEntrada, LocalDate fechaSalida){
         Integer totalDias =0;
+
         DayOfWeek diasDeLaSemana = fechaEntrada.getDayOfWeek();
         //los fines de semana el valor aumenta un 20% para temporada alta
         if(diasDeLaSemana == DayOfWeek.FRIDAY || diasDeLaSemana == DayOfWeek.SATURDAY || diasDeLaSemana == DayOfWeek.SUNDAY){
             // recibo la cantidad de dias que estara hospedado el cliente
             totalDias = totalDias(fechaEntrada,fechaSalida);
             // se revisa la fecha de entrada para saber en que temporada esta
-            if(temporadaBajaoAlta(fechaEntrada,fechaSalida).equals("TEMPORADA ALTA")){
+            if(temporadaBajaoAlta(fechaEntrada,fechaSalida).equals(TEMPORADA_ALTA)){
                 // la temporada alta aumenta un 40% + 20% de los fines de semana
                 return (totalDias * precioHabitacion) + (totalDias * precioHabitacion * 0.2) + (totalDias * precioHabitacion * 0.4);
             }else{
@@ -73,7 +67,7 @@ public class Reserva {
             // recibo la cantidad de dias que estara hospedado el cliente
             totalDias= totalDias(fechaEntrada,fechaSalida);
             // se revisa la fecha de entrada del cliente para determinar en que temporada esta
-            if(temporadaBajaoAlta(fechaEntrada,fechaSalida).equals("TEMPORADA ALTA")){
+            if(temporadaBajaoAlta(fechaEntrada,fechaSalida).equals(TEMPORADA_ALTA)){
                 // la temporada alta aumenta un 40%
                 return (totalDias * precioHabitacion) + (totalDias * precioHabitacion * 0.4);
             }else{
@@ -91,8 +85,6 @@ public class Reserva {
     }
 
     public String temporadaBajaoAlta(LocalDate fechaEntrada, LocalDate fechaSalida){
-        String TEMPORADA_ALTA = "TEMPORADA ALTA";
-        String TEMPORADA_BAJA = "TEMPORADA BAJA";
 
         // Si la fecha de entrada es en temporada baja y la fecha de salida es en temporada alta
         // se mantendra el costo de la temporada baja
