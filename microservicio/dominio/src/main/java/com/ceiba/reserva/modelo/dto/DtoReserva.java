@@ -16,5 +16,4 @@ public class DtoReserva {
     private Long id_habitacion;
     private Long id_cliente;
 
-    //private Double precioHabitacion;
 }

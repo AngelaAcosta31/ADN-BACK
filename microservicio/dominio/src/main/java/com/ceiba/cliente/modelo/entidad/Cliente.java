@@ -22,13 +22,9 @@ public class Cliente {
     private static final String  SE_DEBE_INGRESAR_FECHA_NACIMIENTO="Se debe ingresar la fecha de nacimiento";
     private static final String  SE_DEBE_INGRESAR_UNA_DIRECCION = "Se debe ingresar una direccion";
     private static final String  SE_DEBE_INGRESAR_UNA_FECHA_NACIMIENTO_VALIDA = "Se debe ingresar una fecha de nacimiento valida no la actual";
-    private static final String  SE_DEBE_INGRESAR_F_O_M = "Se debe ingresar solo F, M u O para el genero";
 
-    private static final Integer ANNIO_ACTUAL = 2022;
     private static final LocalDate FECHA_ACTUAL = LocalDate.of(2021,01,19);
-    private static final String FEMENINO = "F";
-    private static final String MASCULINO = "M";
-    private static final String OTRO = "O";
+
 
     private Long   id;
     private String nombre;
@@ -52,9 +48,6 @@ public class Cliente {
         validarObligatorio(fechaNacimiento, SE_DEBE_INGRESAR_FECHA_NACIMIENTO);
         validarObligatorio(direccion,SE_DEBE_INGRESAR_UNA_DIRECCION);
         validarMenor(FECHA_ACTUAL, fechaNacimiento,SE_DEBE_INGRESAR_UNA_FECHA_NACIMIENTO_VALIDA);
-        //validarSexo1(sexo,SE_DEBE_INGRESAR_F_O_M);
-
-
 
 
         this.id = id;

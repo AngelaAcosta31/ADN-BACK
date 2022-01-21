@@ -18,8 +18,6 @@ public class Habitacion {
     private static final String SE_DEBE_INGRESAR_EL_NUMERO_DE_BANIOS = "Se debe ingresar el numero de baños";
     private static final String SE_DEBE_INGRESAR_LA_DESCRIPCION = "Se debe ingresar una descripción de la habitación";
     private static final String SE_DEBE_INGRESAR_UN_ESTADO = "Se debe ingresar un estado";
-    private static final String SE_DEBE_INGRESAR_UN_NUMERO_DE_CAMAS_VALIDO = "Se debe ingresar un numero de camas  valido";
-    private static final String SE_DEBE_INGRESAR_UN_NUMERO_DE_BANNOS_VALIDO = "Se debe ingresar un numero de baños  valido";
 
 
     private Long id;
@@ -32,7 +30,6 @@ public class Habitacion {
     private String piso;
     private String estado;
 
-    public Habitacion(){}
 
     public Habitacion(Long id, String numeroHabitacion, String tipo, Integer noCamas, Integer noBannos, String descripcion, Double precio, String piso, String estado) {
 

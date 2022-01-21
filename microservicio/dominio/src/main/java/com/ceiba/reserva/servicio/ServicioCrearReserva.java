@@ -12,7 +12,6 @@ public class ServicioCrearReserva {
     private static final String LA_RESERVA_YA_EXISTE_EN_EL_SISTEMA = "La reserva ya existe en el sistema";
 
     private final RepositorioReserva repositorioReserva;
-    //private final RepositorioHabitacion repositorioHabitacion;
     private final DaoHabitacion daoHabitacion;
 
     public ServicioCrearReserva(RepositorioReserva repositorioReserva, RepositorioHabitacion repositorioHabitacion, DaoHabitacion daoHabitacion) {
@@ -22,14 +21,6 @@ public class ServicioCrearReserva {
     }
 
     public Long ejecutar(Reserva reserva){
-        /*Double val = 0.0;
-        Double valorTotal = 0.0;
-        validarExistenciaPrevia(reserva);
-        Reserva reserva1 = new Reserva();
-        Habitacion habitacion = new Habitacion();
-        habitacion.setPrecio(new Double(0.0));
-        valorTotal = reserva1.calcularTotal(habitacion.getPrecio(),reserva.getFecha_entrada(),reserva.getFecha_salida());
-        return this.repositorioReserva.crear(reserva);*/
         validarExistenciaPrevia(reserva);
         return this.repositorioReserva.crear(reserva);
     }
