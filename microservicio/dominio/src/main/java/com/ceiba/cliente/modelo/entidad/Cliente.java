@@ -23,7 +23,7 @@ public class Cliente {
     private static final String  SE_DEBE_INGRESAR_UNA_DIRECCION = "Se debe ingresar una direccion";
     private static final String  SE_DEBE_INGRESAR_UNA_FECHA_NACIMIENTO_VALIDA = "Se debe ingresar una fecha de nacimiento valida no la actual";
 
-    private static final LocalDate FECHA_ACTUAL = LocalDate.of(2021,01,19);
+    private static final LocalDate FECHA_ACTUAL = LocalDate.of(2021,1,19);
 
 
     private Long   id;
