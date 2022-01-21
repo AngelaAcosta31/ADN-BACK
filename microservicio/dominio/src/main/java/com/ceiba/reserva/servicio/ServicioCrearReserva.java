@@ -35,7 +35,7 @@ public class ServicioCrearReserva {
     }
 
 
-    /*private Double obtenerPrecioHabitacion(Reserva reserva, DaoHabitacion daoHabitacion){
+    private Double obtenerPrecioHabitacion(Reserva reserva, DaoHabitacion daoHabitacion){
         return this.daoHabitacion.precioHabitacion(reserva.getIdHabitacion());
-    }*/
+    }
 }
