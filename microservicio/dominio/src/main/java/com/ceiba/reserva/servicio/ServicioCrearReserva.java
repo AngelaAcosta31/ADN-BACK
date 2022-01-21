@@ -13,11 +13,11 @@ public class ServicioCrearReserva {
 
     private final RepositorioReserva repositorioReserva;
     private final DaoHabitacion daoHabitacion;
-    private final RepositorioHabitacion repositorioHabitacion;
+    //private final RepositorioHabitacion repositorioHabitacion;
 
 
     public ServicioCrearReserva(RepositorioReserva repositorioReserva, RepositorioHabitacion repositorioHabitacion, DaoHabitacion daoHabitacion) {
-        this.repositorioHabitacion = repositorioHabitacion;
+       // this.repositorioHabitacion = repositorioHabitacion;
         this.repositorioReserva = repositorioReserva;
         this.daoHabitacion = daoHabitacion;
     }
