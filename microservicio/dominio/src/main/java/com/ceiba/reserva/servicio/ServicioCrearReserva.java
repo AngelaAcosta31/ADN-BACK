@@ -13,9 +13,11 @@ public class ServicioCrearReserva {
 
     private final RepositorioReserva repositorioReserva;
     private final DaoHabitacion daoHabitacion;
+    private final RepositorioHabitacion repositorioHabitacion;
+
 
     public ServicioCrearReserva(RepositorioReserva repositorioReserva, RepositorioHabitacion repositorioHabitacion, DaoHabitacion daoHabitacion) {
-
+        this.repositorioHabitacion = repositorioHabitacion;
         this.repositorioReserva = repositorioReserva;
         this.daoHabitacion = daoHabitacion;
     }
@@ -32,7 +34,8 @@ public class ServicioCrearReserva {
         }
     }
 
-    private Double obtenerPrecioHabitacion(Reserva reserva, DaoHabitacion daoHabitacion){
+
+    /*private Double obtenerPrecioHabitacion(Reserva reserva, DaoHabitacion daoHabitacion){
         return this.daoHabitacion.precioHabitacion(reserva.getIdHabitacion());
-    }
+    }*/
 }

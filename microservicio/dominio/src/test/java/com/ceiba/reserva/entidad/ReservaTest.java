@@ -160,6 +160,16 @@ public class ReservaTest {
         assertEquals(264000.0, reserva.getValor());
     }
 
+    @Test
+    void debeCalcularElValorConEntradaEnTemporadaBajaYSalidaEnTemporadaBaja(){
+        LocalDate fecha_entrada = LocalDate.of(2021,3,26);
+        LocalDate fecha_salida = LocalDate.of(2021,4,2);
+        //act
+        Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
+
+        assertEquals(308000.0, reserva.getValor());
+    }
+
 
 
 
