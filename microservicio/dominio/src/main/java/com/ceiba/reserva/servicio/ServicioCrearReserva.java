@@ -28,8 +28,8 @@ public class ServicioCrearReserva {
     public Long ejecutar(Reserva reserva){
 
         validarExistenciaPrevia(reserva);
-        validarExistenciaPreviaHabitacion(reserva.getIdHabitacion());
-        validarExistenciaPreviaIdHabitacion(reserva.getIdHabitacion());
+        //validarExistenciaPreviaHabitacion(reserva.getIdHabitacion());
+        //validarExistenciaPreviaIdHabitacion(reserva.getIdHabitacion());
 
         //reserva.setValor(precioHabitacion(reserva.getIdHabitacion()));
 
