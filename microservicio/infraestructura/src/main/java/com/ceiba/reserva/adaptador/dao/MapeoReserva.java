@@ -13,7 +13,7 @@ public class MapeoReserva implements RowMapper<DtoReserva>, MapperResult {
     @Override
     public DtoReserva mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
-        //NO SE SI DEBERIA QUITARLE EL VALOR
+
         Long id= resultSet.getLong("id");
         Double valor = resultSet.getDouble("valor");
         LocalDate fechaEntrada = extraerLocalDate(resultSet, "fechaEntrada");

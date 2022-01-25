@@ -8,15 +8,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReservaTest {
 
     private static final String SE_DEBE_INGRESAR_FECHA_ENTRADA = "Se debe ingresar la fecha de entrada";
-    private static final String SE_DEBE_INGRESAR_UN_VALOR = "Se debe ingresar el valor a pagar";
     private static final String SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION = "Se debe ingresar el id de la habitación";
     private static final String SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE = "Se debe ingresar el id del cliente";
 
@@ -25,8 +22,8 @@ public class ReservaTest {
     void deberiaCrearCorrectamenteLaReserva(){
 
         //Arrange
-        LocalDate fecha_entrada = LocalDate.of(2021,06,20);
-        LocalDate fecha_salida = LocalDate.of(2021,06,30);
+        LocalDate fecha_entrada = LocalDate.of(2021,6,20);
+        LocalDate fecha_salida = LocalDate.of(2021,6,30);
         //act
         Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conIdCliente(1L).build();
         //assert
@@ -72,8 +69,9 @@ public class ReservaTest {
 
     @Test
     void debeCalcularElValorEnTemporadaAltaConEntradaElFinDeSemana(){
-        LocalDate fecha_entrada = LocalDate.of(2021,06,20);
-        LocalDate fecha_salida = LocalDate.of(2021,06,30);
+
+        LocalDate fecha_entrada = LocalDate.of(2021,6,20);
+        LocalDate fecha_salida = LocalDate.of(2021,6,30);
         //act
         Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
 
@@ -82,8 +80,8 @@ public class ReservaTest {
 
     @Test
     void debeCalcularElValorEnTemporadaBajaConEntradaElFinDeSemana(){
-        LocalDate fecha_entrada = LocalDate.of(2021,02,20);
-        LocalDate fecha_salida = LocalDate.of(2021,02,27);
+        LocalDate fecha_entrada = LocalDate.of(2021,2,20);
+        LocalDate fecha_salida = LocalDate.of(2021,2,27);
         //act
         Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
 
@@ -102,8 +100,8 @@ public class ReservaTest {
 
     @Test
     void debeCalcularElValorEnTemporadaBajaConEntradaEnLaSemana(){
-        LocalDate fecha_entrada = LocalDate.of(2021,03,22);
-        LocalDate fecha_salida = LocalDate.of(2021,03,28);
+        LocalDate fecha_entrada = LocalDate.of(2021,3,22);
+        LocalDate fecha_salida = LocalDate.of(2021,3,28);
         //act
         Reserva reserva = new ReservaTestDataBuilder().conIdReserva(1L).conFechaEntrada(fecha_entrada).conFechaSalida(fecha_salida).build();
 

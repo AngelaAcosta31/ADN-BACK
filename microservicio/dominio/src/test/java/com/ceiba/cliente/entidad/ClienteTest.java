@@ -138,15 +138,6 @@ public class ClienteTest {
         }, ExcepcionValorInvalido.class, SE_DEBE_INGRESAR_UNA_FECHA_NACIMIENTO_VALIDA);
     }
 
- /*   @Test
-    @DisplayName("deberia fallar si el sexo no es F, M u O")
-    void deberiaFallarSiElSexoEsInvalido(){
-        String sexoInvalido = "t";
-        ClienteTestDataBuilder clienteTestDataBuilder = new ClienteTestDataBuilder().conSexo(sexoInvalido);
-        BasePrueba.assertThrows(()->{
-            clienteTestDataBuilder.build();
-        }, ExcepcionValorInvalido.class, SE_DEBE_INGRESAR_F_O_M);
-    }*/
 
 
 

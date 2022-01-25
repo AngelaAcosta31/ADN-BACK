@@ -29,9 +29,6 @@ public class ComandoControladorReserva {
         this.manejadorEliminarReserva = manejadorEliminarReserva;
     }
 
-
-
-
     @PostMapping
     @ApiOperation("crear reserva")
     public ComandoRespuesta<Long> crear(@RequestBody ComandoReserva comandoReserva){

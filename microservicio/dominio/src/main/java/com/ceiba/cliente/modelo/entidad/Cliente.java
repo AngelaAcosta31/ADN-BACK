@@ -11,7 +11,7 @@ import static com.ceiba.dominio.ValidadorArgumento.*;
 @Getter
 public class Cliente {
 
-    // VALIDACIONES
+    // PARA LAS VALIDACIONES
 
     private static final String  SE_DEBE_INGRESAR_UN_NOMBRE=" Se debe ingresar un nombre";
     private static final String  SE_DEBE_INGRESAR_UN_APELLIDO="Se debe ingresar un appellido";
