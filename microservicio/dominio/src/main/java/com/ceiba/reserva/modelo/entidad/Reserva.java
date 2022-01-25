@@ -1,7 +1,6 @@
 package com.ceiba.reserva.modelo.entidad;
 
 
-import com.ceiba.habitacion.modelo.entidad.Habitacion;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,16 +19,11 @@ public class Reserva {
     private static final String SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION = "Se debe ingresar el id de la habitación";
     private static final String SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE = "Se debe ingresar el id del cliente";
 
-    private static final String TEMPORADA_ALTA = "TEMPORADA ALTA";
-    private static final String TEMPORADA_BAJA = "TEMPORADA BAJA";
 
     private static final double PORCENTAJE_TEMPORADA_ATA = 0.4;
     private static final double PORCENTAJE_TEMPORADA_ATA_FIN_DE_SEMANA = 0.2;
     private static final double PORCENTAJE_TEMPORADA_BAJA = 0.1;
     private static final double PORCENTAJE_TEMPORADA_ATA_Y_FIN_DE_SEMANA = 0.6;
-
-
-
 
     private Long id;
     private Double valor;
@@ -66,7 +60,7 @@ public class Reserva {
 
         if (diasDeLaSemana == DayOfWeek.FRIDAY || diasDeLaSemana == DayOfWeek.SATURDAY || diasDeLaSemana == DayOfWeek.SUNDAY) {
             if (temporadaAlta(fechaEntrada).equals(true)) {
-                return precioPorDias + (precioPorDias * PORCENTAJE_TEMPORADA_ATA_FIN_DE_SEMANA) + (precioPorDias * PORCENTAJE_TEMPORADA_ATA);
+                return precioPorDias + (precioPorDias * PORCENTAJE_TEMPORADA_ATA_Y_FIN_DE_SEMANA);
             } else {
                 return precioPorDias + (precioPorDias * PORCENTAJE_TEMPORADA_BAJA);
             }
@@ -97,17 +91,6 @@ public class Reserva {
         temporadaAlta.add("DECEMBER");
 
         return temporadaAlta.contains(fechaEntrada.getMonth().toString());
-
-
-
-
-
-       /* // Si la fecha de entrada es en temporada baja y la fecha de salida es en temporada alta
-        // se mantendra el costo de la temporada baja
-        if((fechaEntrada.getMonth() == Month.MAY && fechaSalida.getMonth() == Month.JUNE) ||
-                (fechaEntrada.getMonth() == Month.NOVEMBER && fechaSalida.getMonth() == Month.DECEMBER)){
-            return TEMPORADA_BAJA;
-        }*/
 
 
     }
