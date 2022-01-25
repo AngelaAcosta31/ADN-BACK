@@ -21,7 +21,6 @@ public class Reserva {
 
 
     private static final double PORCENTAJE_TEMPORADA_ATA = 0.4;
-    private static final double PORCENTAJE_TEMPORADA_ATA_FIN_DE_SEMANA = 0.2;
     private static final double PORCENTAJE_TEMPORADA_BAJA = 0.1;
     private static final double PORCENTAJE_TEMPORADA_ATA_Y_FIN_DE_SEMANA = 0.6;
 
