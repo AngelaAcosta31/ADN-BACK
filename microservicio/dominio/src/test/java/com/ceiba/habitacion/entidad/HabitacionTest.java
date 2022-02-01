@@ -1,7 +1,6 @@
 package com.ceiba.habitacion.entidad;
 
 import com.ceiba.BasePrueba;
-import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.habitacion.modelo.entidad.Habitacion;
 import com.ceiba.habitacion.servicio.testdatabuilder.HabitacionTestDataBuilder;

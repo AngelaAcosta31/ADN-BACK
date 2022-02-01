@@ -3,14 +3,10 @@ package com.ceiba.habitacion.modelo.entidad;
 import lombok.Getter;
 import lombok.Setter;
 
-import static com.ceiba.dominio.ValidadorArgumento.validarMenor;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
-@Setter
 public class Habitacion {
-
-    // validaciones
 
     private static final String SE_DEBE_INGRESAR_NUMERO_HABITACION="Se debe ingresar numero de habitación";
     private static final String SE_DEBE_INGRESAR_EL_TIPO_DE_HABITACION = "Se debe ingresar el tipo de habitación";
@@ -33,7 +29,6 @@ public class Habitacion {
 
     public Habitacion(Long id, String numeroHabitacion, String tipo, Integer noCamas, Integer noBannos, String descripcion, Double precio, String piso, String estado) {
 
-        //Nos permite validar que si no se introduce un valor a cada atributo mande el mensaje
         validarObligatorio(numeroHabitacion, SE_DEBE_INGRESAR_NUMERO_HABITACION);
         validarObligatorio(tipo, SE_DEBE_INGRESAR_EL_TIPO_DE_HABITACION);
         validarObligatorio(noCamas, SE_DEBE_INGRESAR_EL_NUMERO_DE_CAMAS);

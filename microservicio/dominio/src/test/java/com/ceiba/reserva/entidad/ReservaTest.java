@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ReservaTest {
 
     private static final String SE_DEBE_INGRESAR_FECHA_ENTRADA = "Se debe ingresar la fecha de entrada";
+    private static final String SE_DEBE_INGRESAR_FECHA_SALIDA = "Se debe ingresar la fecha de salida";
     private static final String SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION = "Se debe ingresar el id de la habitación";
     private static final String SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE = "Se debe ingresar el id del cliente";
 
@@ -45,6 +46,16 @@ public class ReservaTest {
         BasePrueba.assertThrows(()->{
             reservaTestDataBuilder.build();
         }, ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_FECHA_ENTRADA);
+    }
+
+    @Test
+    void deberiaFallarSinFechaSalida(){
+        //Arrange
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conIdReserva(1L).conFechaSalida(null);
+        //act-assert
+        BasePrueba.assertThrows(()->{
+            reservaTestDataBuilder.build();
+        }, ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_FECHA_SALIDA);
     }
 
     @Test

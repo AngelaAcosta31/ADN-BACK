@@ -3,15 +3,12 @@ package com.ceiba.cliente.modelo.entidad;
 import lombok.Getter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 
 import static com.ceiba.dominio.ValidadorArgumento.*;
 
 @Getter
 public class Cliente {
-
-    // PARA LAS VALIDACIONES
 
     private static final String  SE_DEBE_INGRESAR_UN_NOMBRE=" Se debe ingresar un nombre";
     private static final String  SE_DEBE_INGRESAR_UN_APELLIDO="Se debe ingresar un appellido";
@@ -38,7 +35,6 @@ public class Cliente {
 
     public Cliente(Long id, String nombre, String apellido, String numeroIdentificacion, String telefono, String correo, String sexo, LocalDate fechaNacimiento, String direccion) {
 
-        //Nos permite validar que si no se introduce un valor a cada atributo mande una excepcion
         validarObligatorio(nombre, SE_DEBE_INGRESAR_UN_NOMBRE);
         validarObligatorio(apellido, SE_DEBE_INGRESAR_UN_APELLIDO);
         validarObligatorio(numeroIdentificacion, SE_DEBE_INGRESAR_UN_NUMERO_IDENTIFICACION);

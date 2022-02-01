@@ -12,10 +12,10 @@ import java.util.List;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
-@Setter
 public class Reserva {
 
     private static final String SE_DEBE_INGRESAR_FECHA_ENTRADA = "Se debe ingresar la fecha de entrada";
+    private static final String SE_DEBE_INGRESAR_FECHA_SALIDA = "Se debe ingresar la fecha de salida";
     private static final String SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION = "Se debe ingresar el id de la habitación";
     private static final String SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE = "Se debe ingresar el id del cliente";
 
@@ -35,6 +35,7 @@ public class Reserva {
     public Reserva(Long id, Double valor, LocalDate fechaEntrada, LocalDate fechaSalida, Long idHabitacion, Long idCliente) {
 
         validarObligatorio(fechaEntrada, SE_DEBE_INGRESAR_FECHA_ENTRADA);
+        validarObligatorio(fechaSalida,SE_DEBE_INGRESAR_FECHA_SALIDA);
         validarObligatorio(idHabitacion, SE_DEBE_INGRESAR_EL_ID_DE_LA_HABITACION);
         validarObligatorio(idCliente, SE_DEBE_INGRESAR_EL_ID_DEL_CLIENTE);
 

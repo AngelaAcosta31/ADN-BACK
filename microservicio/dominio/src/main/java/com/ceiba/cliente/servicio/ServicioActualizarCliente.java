@@ -11,7 +11,6 @@ public class ServicioActualizarCliente {
     // inyeccion de dependencias
     private final RepositorioCliente repositorioCliente;
 
-    // constructor
     public ServicioActualizarCliente(RepositorioCliente repositorioCliente) {
         this.repositorioCliente = repositorioCliente;
     }

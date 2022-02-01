@@ -1,8 +1,6 @@
 package com.ceiba.habitacion.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.cliente.comando.ComandoCliente;
-import com.ceiba.cliente.servicio.testdatabuilder.ComandoClienteTestDataBuilder;
 import com.ceiba.habitacion.comando.ComandoHabitacion;
 import com.ceiba.habitacion.servicio.testdatabuilder.ComandoHabitacionTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -76,7 +74,6 @@ public class ComandoControladorHabitacionTest {
 
     }
 
-    //NO FUNCIONA
     @Test
     @DisplayName("Deberia eliminar una habitacion")
     void deberiaEliminarUnaHabitacion()throws Exception{
@@ -93,18 +90,6 @@ public class ComandoControladorHabitacionTest {
                 .andExpect(jsonPath("$",hasSize(2)));
 
     }
-
-/*    @Test
-    @DisplayName("Deberia fallar si se va a actualizar una habitacion que no existe")
-    void deberiaFallarAlActualizarUnaHabitacionQueNoExiste() throws Exception {
-        Long id = 10L;
-        ComandoHabitacion habitacion = new ComandoHabitacionTestDataBuilder().build();
-        mockMvc.perform(put("/habitaciones/{id}",id)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(habitacion)))
-                .andExpect(status().isBadRequest())
-                .andExpect(content().json("{'nombreExcepcion':'ExcepcionDuplicidad','mensaje':'La habitacion no existe en el sistema'}"));
-    }*/
 
 
 

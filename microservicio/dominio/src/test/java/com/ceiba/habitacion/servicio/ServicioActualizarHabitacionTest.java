@@ -15,7 +15,7 @@ public class ServicioActualizarHabitacionTest {
 
     @Test
     @DisplayName("Deberia validar la existencia previa de la habitacion")
-    void deberiaValidarLaExistenciaPreviaDelCliente(){
+    void deberiaValidarLaExistenciaPreviaDeLaHabitacion(){
 
         //Arrange
         Habitacion habitacion = new HabitacionTestDataBuilder().conIdHabitacion(1L).build();

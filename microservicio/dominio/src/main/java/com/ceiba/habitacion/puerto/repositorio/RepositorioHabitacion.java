@@ -6,14 +6,11 @@ public interface RepositorioHabitacion {
 
     /**
      * Permite crear una habitacion
-     * @param habitacion
-     * @retun el id generado
      */
     Long crear(Habitacion habitacion);
 
     /**
      * permite actualizar una habitacion
-     * @param habitacion
      */
     void actualizar(Habitacion habitacion);
 
@@ -25,21 +22,16 @@ public interface RepositorioHabitacion {
 
     /**
      * permite eliminar habitacion
-     * @param id
      */
     void eliminar(Long id);
 
     /**
      * para validar si existe una habitacion por numero de habitacion
-     * @param numeroHabitacion
-     * @return existe o no
      */
     boolean existePorNumeroHabitacion(String numeroHabitacion);
 
     /**
      * permite validar si existe una habitacion con ese id
-     * @param idHabitacion
-     * @retun existe o no
      */
     boolean existePorId(Long idHabitacion);
 }

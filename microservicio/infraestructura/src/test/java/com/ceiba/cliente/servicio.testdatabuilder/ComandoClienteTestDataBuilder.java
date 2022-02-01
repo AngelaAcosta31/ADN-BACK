@@ -3,7 +3,6 @@ package com.ceiba.cliente.servicio.testdatabuilder;
 import com.ceiba.cliente.comando.ComandoCliente;
 
 import java.time.LocalDate;
-import java.util.Random;
 
 public class ComandoClienteTestDataBuilder {
 

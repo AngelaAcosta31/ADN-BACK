@@ -3,8 +3,6 @@ package com.ceiba.cliente.servicio.testdatabuilder;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class ClienteTestDataBuilder {
 
@@ -28,7 +26,7 @@ public class ClienteTestDataBuilder {
         this.telefono = "3104542756";
         this.correo = "PAULITA@HOTMAIL.COM";
         this.sexo ="F";
-        this.fecha_nacimiento = LocalDate.of(2000,07,31);
+        this.fecha_nacimiento = LocalDate.of(2000,7,31);
         this.direccion = "CALLE 30 # 1-160";
     }
 

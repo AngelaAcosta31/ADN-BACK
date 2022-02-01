@@ -46,7 +46,6 @@ public interface DaoHabitacion {
 
     /**
      * permite traer el precio de la habitacion segun su id
-     * @param idHabitacion
      * @return
      * REVISAR PORQUE DEBERIA DEVOLVER UN DOUBLE NO UN DTO
      */

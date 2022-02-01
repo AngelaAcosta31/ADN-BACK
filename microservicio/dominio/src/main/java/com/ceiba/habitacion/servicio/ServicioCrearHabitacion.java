@@ -8,7 +8,6 @@ public class ServicioCrearHabitacion {
 
     private static final String LA_HABITACION_YA_EXISTE_EN_EL_SISTEMA = "La habitacion ya existe en el sistema";
 
-    // inyeccion de dependencias
     private final RepositorioHabitacion repositorioHabitacion;
 
 

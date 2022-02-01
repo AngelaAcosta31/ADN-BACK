@@ -3,8 +3,6 @@ package com.ceiba.reserva.servicio.testdatabuilder;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class ReservaTestDataBuilder {
 
@@ -18,8 +16,8 @@ public class ReservaTestDataBuilder {
     public ReservaTestDataBuilder(){
 
         this.valor = 40000.00;
-        this.fecha_entrada = LocalDate.of(2021,06,20);
-        this.fecha_salida = LocalDate.of(2021,06,30);
+        this.fecha_entrada = LocalDate.of(2021,6,20);
+        this.fecha_salida = LocalDate.of(2021,6,30);
         this.id_habitacion = 1L;
         this.id_cliente = 1L;
 
@@ -27,11 +25,6 @@ public class ReservaTestDataBuilder {
 
     public ReservaTestDataBuilder conIdReserva(Long id_reserva){
         this.id = id_reserva;
-        return this;
-    }
-
-    public ReservaTestDataBuilder conValor(Double valor){
-        this.valor = valor;
         return this;
     }
 

@@ -8,8 +8,6 @@ public class ServicioCrearCliente {
 
     private static final String EL_CLIENTE_YA_EXISTE = "El cliente ya existe en el sistema";
 
-    //Inyeccion de dependencias
-
     private final RepositorioCliente repositorioCliente;
 
     public ServicioCrearCliente(RepositorioCliente repositorioCliente) {

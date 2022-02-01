@@ -3,7 +3,6 @@ package com.ceiba.reserva.servicio;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 
 public class ServicioEliminarReserva {
-    // inyeccion de dependencias
     private final RepositorioReserva repositorioReserva;
 
     public ServicioEliminarReserva(RepositorioReserva repositorioReserva) {

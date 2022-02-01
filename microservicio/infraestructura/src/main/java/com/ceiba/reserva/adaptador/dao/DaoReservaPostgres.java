@@ -35,6 +35,9 @@ public class DaoReservaPostgres implements DaoReserva {
     @SqlStatement(namespace = "reserva", value = "obtenerPrecioHabitacion")
     private static String sqlObtenerPrecioHabitacion;
 
+    @SqlStatement(namespace = "reserva", value = "buscarPorIdReserva")
+    private static String sqlBuscarPorIdReserva;
+
     public DaoReservaPostgres(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -71,6 +74,13 @@ public class DaoReservaPostgres implements DaoReserva {
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
         mapSqlParameterSource.addValue("idCliente", idCliente);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListarPorIdCliente, mapSqlParameterSource, new MapeoReserva());
+    }
+
+    @Override
+    public DtoReserva buscarPorIdReserva(Long idReserva) {
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("id",idReserva);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqlBuscarPorIdReserva, mapSqlParameterSource, new MapeoReserva()).stream().findFirst().get();
     }
 
 }

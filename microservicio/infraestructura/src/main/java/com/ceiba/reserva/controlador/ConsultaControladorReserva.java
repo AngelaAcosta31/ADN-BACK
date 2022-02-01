@@ -20,19 +20,19 @@ public class ConsultaControladorReserva {
     private final ManejadorListarPorFechaSalidaReserva manejadorListarPorFechaSalidaReserva;
     private final ManejadorListarPorIdHabitacionReserva manejadorListarPorIdHabitacionReserva;
     private final ManejadorBuscarPorIdClienteReserva manejadorBuscarPorIdClienteReserva;
-
+    private final ManejadorBuscarPorIdReserva manejadorBuscarPorIdReserva;
 
     public ConsultaControladorReserva(ManejadorListarReserva manejadorListarReserva,
                                       ManejadorListarPorFechaEntradaReserva manejadorListarPorFechaEntradaReserva,
                                       ManejadorListarPorFechaSalidaReserva manejadorListarPorFechaSalidaReserva,
                                       ManejadorListarPorIdHabitacionReserva manejadorListarPorIdHabitacionReserva,
-                                      ManejadorBuscarPorIdClienteReserva manejadorBuscarPorIdClienteReserva) {
+                                      ManejadorBuscarPorIdClienteReserva manejadorBuscarPorIdClienteReserva, ManejadorBuscarPorIdReserva manejadorBuscarPorIdReserva) {
         this.manejadorListarReserva = manejadorListarReserva;
         this.manejadorListarPorFechaEntradaReserva = manejadorListarPorFechaEntradaReserva;
         this.manejadorListarPorFechaSalidaReserva = manejadorListarPorFechaSalidaReserva;
         this.manejadorListarPorIdHabitacionReserva = manejadorListarPorIdHabitacionReserva;
         this.manejadorBuscarPorIdClienteReserva = manejadorBuscarPorIdClienteReserva;
-
+        this.manejadorBuscarPorIdReserva = manejadorBuscarPorIdReserva;
     }
 
     @GetMapping
@@ -63,6 +63,12 @@ public class ConsultaControladorReserva {
     @ApiOperation("Listar por id_cliente")
     public List<DtoReserva> listarPorIdCliente(@PathVariable Long idCliente){
         return this.manejadorBuscarPorIdClienteReserva.ejecutar(idCliente);
+    }
+
+    @GetMapping("/idReserva/{id}")
+    @ApiOperation("Obtener reserva por id")
+    public DtoReserva buscarPorIdReserva(@PathVariable Long id){
+        return this.manejadorBuscarPorIdReserva.ejecutar(id);
     }
 
 }
